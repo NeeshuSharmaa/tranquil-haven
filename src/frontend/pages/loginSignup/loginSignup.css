@@ -1,0 +1,56 @@
+.auth-page{
+  position:flex;
+  top:100px;
+  right:0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.auth-flex-container{
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+    padding:1rem;
+  
+  }
+
+.auth-flex-container>input,.auth-flex-container>div>input {
+  /* padding: 0.5rem 1rem; */
+  padding: 0.5rem 0;
+  border:0;
+  border-bottom:1px solid lightgrey;
+  font-size:0.8rem;
+  
+}
+.auth-flex-container>div{
+  display:flex;
+  gap:1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.auth-flex-container>div>input{
+  width:80%;
+}
+.auth-flex-container>input:focus, .auth-flex-container>div>input:focus{
+  outline:none;
+  
+}
+.auth-flex-container>button{
+  background-color:whitesmoke ;
+  border:0;
+  border-radius:0.4rem;
+  padding:0.6rem 1rem;
+ 
+  box-shadow: 1px 1px 2px rgb(165, 165, 165);
+}
+.auth-flex-container>p{
+  display:flex;
+  gap:0.5rem;
+  
+}
+.auth-flex-container>p>a{
+  color:#6d85dd;
+}
