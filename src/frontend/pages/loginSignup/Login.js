@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./loginSignup.css";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const { loginHandler } = useAuthContext();
@@ -9,10 +10,14 @@ export default function Login() {
   const loginHandleSubmit = (e) => {
     e.preventDefault();
     const { username, password } = e.target.elements;
-    if (username && password) {
+
+    if (username.value && password.value) {
+      console.log("inside if");
       loginHandler(username.value, password.value);
     } else {
-      // Fill the required fields toast error
+      toast.warning("Fill the required input fields", {
+        className: "toast-message",
+      });
     }
   };
   return (

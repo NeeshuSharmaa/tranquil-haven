@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const { signupHandler } = useAuthContext();
@@ -21,7 +22,9 @@ export default function Signup() {
     if (password.value === confirmPassword.value) {
       signupHandler(username.value, password.value);
     } else {
-      console.log("password and confirm password must be same");
+      toast.warning("Password and confirm password must match", {
+        className: "toast-message",
+      });
     }
   };
   return (

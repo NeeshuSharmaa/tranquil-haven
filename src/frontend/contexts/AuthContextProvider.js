@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -27,9 +28,11 @@ export default function AuthContextProvider({ children }) {
       console.log(response);
       localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
       setLoggedIn(true);
+      toast.success("Logged in successfully", { className: "toast-message" });
       fromLocation === "undefined" ? navigate("/") : navigate(fromLocation);
     } catch (e) {
       console.log("login service error", e);
+      toast.error("Log In service error", { className: "toast-message" });
     }
   };
   const signupHandler = async (username, password) => {
@@ -41,15 +44,18 @@ export default function AuthContextProvider({ children }) {
 
       localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
       setLoggedIn(true);
+      toast.success("Signed Up successfully", { className: "toast-message" });
       fromLocation === "undefined" ? navigate("/") : navigate(fromLocation);
     } catch (e) {
       console.log("signup service error", e);
+      toast.error("Sign up service error", { className: "toast-message" });
     }
   };
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
     setLoggedIn(false);
+    toast.success("Logged Out successfully", { className: "toast-message" });
   };
 
   const values = {
