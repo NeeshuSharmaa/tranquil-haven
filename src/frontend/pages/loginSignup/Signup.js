@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import { signupHandler } from "../../services/auth/auth";
+
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useAuthContext } from "../../contexts/AuthContextProvider";
 
 export default function Signup() {
+  const { signupHandler } = useAuthContext();
+
   const [hidePass, setHidePass] = useState({
     password: true,
     confirmPass: true,
@@ -24,7 +27,7 @@ export default function Signup() {
   return (
     <div className="auth-page">
       <form className="auth-flex-container" onSubmit={signupHandleSubmit}>
-        <h2>Create an Account</h2>
+        <h1>Create Tranquil Haven's account</h1>
         <input type="email" name="email" placeholder="Email" required />
         <div>
           <input
