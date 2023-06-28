@@ -11,10 +11,12 @@ import Home from "./frontend/pages/home/Home";
 import PrivateRoute from "./frontend/components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Sidebar from "./frontend/components/sidebar/Sidebar";
 
 function App() {
   return (
     <div className="App">
+      <Sidebar />
       <Routes>
         <Route
           path="/"
@@ -60,6 +62,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <aside className="suggested-followers"></aside>
       <ToastContainer
         position="top-right"
         autoClose={1000}
