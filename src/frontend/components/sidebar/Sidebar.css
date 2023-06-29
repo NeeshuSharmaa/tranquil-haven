@@ -10,6 +10,12 @@
   justify-content: space-around;
   align-items: center;
   height: 100vh;
+  z-index:5;
+}
+.nav-sidebar>h2{
+  background: -webkit-linear-gradient(bottom, rgb(54, 89, 154), cornflowerblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .sidebar-links {
   display: flex;
@@ -21,7 +27,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  color: #1e293b;
+  color: var(--dark-primary);
 }
 .sidebar-link-child:hover {
   background-color: white;
@@ -54,5 +60,5 @@
   border-radius: 50%;
 }
 .sidebar-profile>.fa-icons{
-  color:rgb(189, 200, 222);
+  color:var(--dark-primary);
 }

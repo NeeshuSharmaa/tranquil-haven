@@ -8,13 +8,17 @@ import {
   faHouse,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuthContext } from "../../contexts/AuthContextProvider";
 
 export default function Sidebar() {
   const activeStyle = ({ isActive }) =>
     isActive ? "active sidebar-link-child" : "sidebar-link-child";
 
+  const { currentUser } = useAuthContext();
+  console.log(currentUser);
   return (
     <aside className="nav-sidebar">
+      <h2>tranquilHaven</h2>
       <div className="sidebar-links">
         <NavLink className={activeStyle} to="/">
           <FontAwesomeIcon className="fa-icons" icon={faHouse} />
@@ -34,14 +38,12 @@ export default function Sidebar() {
         </NavLink>
       </div>
       <div className="sidebar-profile">
-        <img
-          src="/assets/images/guest_user.jpg"
-          alt="user"
-          className="user-img"
-        />
+        <img src={currentUser.image} alt="user" className="user-img" />
         <div className="profile-main">
-          <p className="name">Neeya Sharma</p>
-          <p>neeyasharmaa@gmail.com</p>
+          <p className="name">{`${currentUser.firstName} ${" "} ${
+            currentUser.lastName
+          }`}</p>
+          <p>{currentUser.email}</p>
         </div>
         <FontAwesomeIcon icon={faRightFromBracket} className="fa-icons" />
       </div>

@@ -5,6 +5,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   --gray-bg-color: #f1f5f9;
+  --bluish-white:#ebf4ff;
+  --dark-primary:#1e293b;
+  --light-primary: ;
 }
 
 a {
@@ -16,6 +19,9 @@ a {
 button {
   cursor: pointer;
 }
+input:focus{
+  outline:none;
+}
 .toast-message {
   top: 2.5rem;
   opacity: 0.9;
@@ -23,11 +29,20 @@ button {
 }
 .App {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns:1fr 2fr 1fr;
   justify-content: center;
 }
 
 .fa-icons {
   height: 20px;
   width: 20px;
+}
+
+.grey-color{
+  color:rgb(67, 84, 128);
+}
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
