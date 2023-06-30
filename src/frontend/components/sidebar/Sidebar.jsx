@@ -38,12 +38,12 @@ export default function Sidebar() {
         </NavLink>
       </div>
       <div className="sidebar-profile">
-        <img src={currentUser.image} alt="user" className="user-img" />
+        <img src={currentUser?.image} alt="user" className="user-img" />
         <div className="profile-main">
-          <p className="name">{`${currentUser.firstName} ${" "} ${
-            currentUser.lastName
+          <p className="name">{`${currentUser?.firstName} ${" "} ${
+            currentUser?.lastName
           }`}</p>
-          <p>{currentUser.email}</p>
+          <p>{currentUser?.email}</p>
         </div>
         <FontAwesomeIcon icon={faRightFromBracket} className="fa-icons" />
       </div>
