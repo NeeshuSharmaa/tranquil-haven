@@ -57,17 +57,20 @@ textarea:focus {
   display:flex;
   gap:0.2rem;
   align-items: center;
-  padding:0.4rem 0.5rem;
-  border-radius:0.5rem;
+  padding:0.2rem 0.6rem;
+  border-radius:0.4rem;
+ color:var(--dark-primary) ;
+ cursor:pointer;
+  
 
 }
 
-.active-filter{
-  background-color: cornflowerblue;
-  color:white;
+.filter>.active-filter{
+  background-color:rgb(191 219 255);
+  /* color:white; */
 }
 .filter-icon{
-  color:light
+  
 }
 .posts-outer-container{
   display:flex;

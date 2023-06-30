@@ -21,14 +21,7 @@ export default function Post({
 
   const { name, userImg } = getUserDetails(username);
 
-  // const getPostDateTime = (updatedAt) => {
-  //   const date = new Date(updatedAt).getDate();
-  //   const month = new Date(updatedAt).getMonth();
-  //   const year = new Date(updatedAt).getFullYear();
-  //   const hours = new Date(updatedAt).getHours();
-  //   const minutes = new Date(updatedAt).getMinutes();
-  //   return `${date}/${month}/${year} ${hours}:${minutes}`;
-  // };
+  const getDateAndTime = (createdAt) => createdAt.formatted.replace("at", " ");
 
   return (
     <div className="post-outer-container">
@@ -41,7 +34,7 @@ export default function Post({
               <span className="grey-color">@{username}</span>
             </div>
 
-            <span className="grey-color">{updatedAt}</span>
+            <span className="grey-color">{getDateAndTime(createdAt)}</span>
           </div>
         </div>
 

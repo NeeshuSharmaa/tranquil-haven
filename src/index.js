@@ -6,6 +6,7 @@ import App from "./App";
 
 import { makeServer } from "./server";
 import AuthContextProvider from "./frontend/contexts/AuthContextProvider";
+import PostsContextProvider from "./frontend/contexts/PostsContextProvider.js";
 
 // Call make Server
 makeServer();
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <Router>
       <AuthContextProvider>
-        <App />
+        <PostsContextProvider>
+          <App />
+        </PostsContextProvider>
       </AuthContextProvider>
     </Router>
   </React.StrictMode>
