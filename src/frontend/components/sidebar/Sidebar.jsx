@@ -14,7 +14,7 @@ export default function Sidebar() {
   const activeStyle = ({ isActive }) =>
     isActive ? "active sidebar-link-child" : "sidebar-link-child";
 
-  const { currentUser } = useAuthContext();
+  const { currentUser, logoutHandler } = useAuthContext();
   console.log(currentUser);
   return (
     <aside className="nav-sidebar">
@@ -45,7 +45,12 @@ export default function Sidebar() {
           }`}</p>
           <p>{currentUser?.email}</p>
         </div>
-        <FontAwesomeIcon icon={faRightFromBracket} className="fa-icons" />
+        <FontAwesomeIcon
+          icon={faRightFromBracket}
+          className="fa-icons"
+          onClick={logoutHandler}
+          style={{ cursor: "pointer" }}
+        />
       </div>
     </aside>
   );
