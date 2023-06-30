@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes, useLocation } from "react-router";
 import "./App.css";
 import Login from "./frontend/pages/loginSignup/Login";
 import Signup from "./frontend/pages/loginSignup/Signup";
@@ -14,9 +14,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./frontend/components/sidebar/Sidebar";
 
 function App() {
+  const { pathname } = useLocation();
+  const showSidebars =
+    pathname !== "/login" && pathname !== "/signup" && pathname !== "/notfound";
+  const appStyle =
+    pathname !== "/login" && pathname !== "/signup" && pathname !== "/notfound"
+      ? "App"
+      : "";
+
   return (
-    <div className="App">
-      <Sidebar />
+    <div className={appStyle}>
+      {showSidebars && <Sidebar />}
       <Routes>
         <Route
           path="/"
@@ -60,9 +68,10 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/notfound" element={<NotFound />} />
+        <Route path="*" element={<Navigate replace to="/notfound" />} />
       </Routes>
-      <aside className="suggested-followers"></aside>
+      {showSidebars && <aside className="suggested-followers"></aside>}
       <ToastContainer
         position="top-right"
         autoClose={1000}
