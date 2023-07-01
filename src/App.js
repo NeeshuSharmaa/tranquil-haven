@@ -12,6 +12,7 @@ import PrivateRoute from "./frontend/components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./frontend/components/sidebar/Sidebar";
+import PostModal from "./frontend/components/postModal/PostModal";
 
 function App() {
   const { pathname } = useLocation();
@@ -61,7 +62,7 @@ function App() {
           }
         />
         <Route
-          path="/post/:id"
+          path="/posts/:id"
           element={
             <PrivateRoute>
               <Post />
@@ -84,6 +85,7 @@ function App() {
         pauseOnHover
         theme="colored"
       />
+      <PostModal />
     </div>
   );
 }

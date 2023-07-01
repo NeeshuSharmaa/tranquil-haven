@@ -8,10 +8,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { createPost } from "../../services/PostServices";
 
 export default function Home() {
-  const { currentUser } = useAuthContext();
-
+  const { currentUser, encodedToken } = useAuthContext();
   const {
     postsState: {
       posts,
@@ -19,6 +21,8 @@ export default function Home() {
     },
     dispatch,
   } = usePostsContext();
+
+  const [post, setPost] = useState("");
 
   let postsToDisplay;
 
@@ -38,7 +42,6 @@ export default function Home() {
   } else {
     postsToDisplay = posts;
   }
-  console.log("posts", posts, postsToDisplay);
 
   return (
     <div className="home">
@@ -48,8 +51,17 @@ export default function Home() {
           alt={currentUser.username}
           className="user-img"
         />
-        <textarea placeholder="What's cooking in your head?" />
-        <button>
+        <textarea
+          value={post}
+          placeholder="What's cooking in your head?"
+          onChange={(e) => setPost(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            createPost(post, dispatch, encodedToken, toast);
+            setPost("");
+          }}
+        >
           <span>Post </span>
           <FontAwesomeIcon icon={faPaperPlane} />
         </button>

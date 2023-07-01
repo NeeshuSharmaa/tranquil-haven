@@ -5,9 +5,11 @@
   background-color:white;
   padding:2rem;
   border-radius:0.5rem;
-  width:calc(500px + 4rem)
+  width:calc(500px + 4rem);
+  
 }
 .post-head {
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -25,7 +27,7 @@
 }
 .post-head-left>.post-user-info>div{
   display:flex;
-  gap:1rem;
+  gap:0.5rem;
 }
 .post-content{
   display:flex;
@@ -51,4 +53,61 @@
   display:flex;
   align-items:center;
   gap:0.25rem;
+}
+
+.ellipsis-container{
+  position:absolute;
+  top:5%;
+  right:-20%;
+  border-radius:0.5rem;
+  
+  background-color: var(--bluish-white);
+  display:flex;
+  flex-direction: column;
+  border:1px solid rgb(213, 228, 255);;
+ 
+  
+
+
+}
+.ellipsis-container>.fa-icons{
+  position:absolute;
+  top:-5%;
+  right:-5%;
+  padding:0.2rem;
+  border-radius:50%;
+  background-color:cornflowerblue;
+  color:white;
+  cursor:pointer;
+  height:15px;
+  width:15px;
+}
+
+.ellipsis-container>div>div:first-child{
+  border-bottom:1px solid rgb(213, 228, 255);
+}
+
+.ellipsis-container>div>div{
+  display:flex;
+  gap:0.5rem;
+  align-items: center;
+  padding:1rem 1.25rem;
+}
+.ellipsis-action-icons{
+  color:cornflowerblue;
+}
+.ellipsis-container>div>div:hover{
+  background-color:rgb(213, 228, 255);
+  cursor:pointer;
+  
+}
+.ellipsis-container>div>div:first-child{
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  color: var(--dark-primary);
+}
+.ellipsis-container>div>div:nth-child(2){
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: var(--dark-primary);
 }

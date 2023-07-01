@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { users as usersData } from "../../backend/db/users";
 
@@ -14,10 +14,10 @@ export default function AuthContextProvider({ children }) {
 
   const [loggedIn, setLoggedIn] = useState(token);
 
-  const location = useLocation();
   const navigate = useNavigate();
   const [users, setUsers] = useState([...usersData]);
   const [currentUser, setCurrentUser] = useState(JSON.parse(user));
+  const [encodedToken, setEncodedToken] = useState(token);
 
   const loginHandler = async (username, password) => {
     try {
@@ -28,6 +28,7 @@ export default function AuthContextProvider({ children }) {
         password,
       });
       setCurrentUser(foundUser);
+      setEncodedToken(encodedToken);
       localStorage.setItem("token", JSON.stringify(encodedToken));
       localStorage.setItem("user", JSON.stringify(foundUser));
 
@@ -49,6 +50,7 @@ export default function AuthContextProvider({ children }) {
       });
       setUsers((users) => [...users, createdUser]);
       setCurrentUser(createdUser);
+      setEncodedToken(encodedToken);
       localStorage.setItem("token", JSON.stringify(encodedToken));
       localStorage.setItem("user", JSON.stringify(createdUser));
 
@@ -65,12 +67,13 @@ export default function AuthContextProvider({ children }) {
     localStorage.removeItem("token");
     setLoggedIn(false);
     setCurrentUser(null);
+    setEncodedToken(null);
     toast.success("Logged Out successfully", { className: "toast-message" });
   };
 
   const getUserDetails = (uName) => {
     const findUser = users.find(({ username }) => username === uName);
-    console.log("user", findUser);
+
     return {
       name: `${findUser.firstName}  ${findUser.lastName}`,
       userImg: findUser.image,
@@ -80,6 +83,7 @@ export default function AuthContextProvider({ children }) {
   const values = {
     users,
     currentUser,
+    encodedToken,
     loggedIn,
     setLoggedIn,
     loginHandler,
