@@ -27,7 +27,12 @@ export default function PostsContextProvider({ children }) {
   };
   const [postsState, dispatch] = useReducer(postsReducer, initialState);
 
+  const postsByUser = postsState.posts.filter(
+    ({ username }) => username === currentUser?.username
+  );
+
   const values = {
+    postsByUser,
     postsState,
     dispatch,
     editPost,
@@ -37,7 +42,9 @@ export default function PostsContextProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchPosts(dispatch, currentUser);
+    if (currentUser) {
+      fetchPosts(dispatch, currentUser);
+    }
   }, [dispatch, currentUser]);
 
   return (

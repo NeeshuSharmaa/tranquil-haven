@@ -15,7 +15,6 @@ import {
   addToBookmarks,
   deletePost,
   dislikePost,
-  editPostHandler,
   likePost,
   removeFromBookmarks,
 } from "../../services/PostServices.js";
@@ -41,8 +40,10 @@ export default function Post({
   const getDateAndTime = (createdAt) => createdAt.formatted.replace("at", " ");
 
   const [showEllipsisActions, setShowEllipsisAction] = useState(false);
+  console.log("like count", likes.likeCount);
 
   const editHandler = () => {
+    console.log("edit1");
     setShowEllipsisAction(false);
     setShowEditPostModal(true);
     setEditPost({ id: _id, content });
@@ -84,25 +85,23 @@ export default function Post({
                   onClick={() => setShowEllipsisAction(false)}
                 />
                 <div>
-                  <div>
+                  <div onClick={editHandler}>
                     <FontAwesomeIcon
                       icon={faPenToSquare}
                       className="ellipsis-action-icons"
                     />
-                    <p onClick={editHandler}>Edit</p>
+                    <p>Edit</p>
                   </div>
-                  <div>
+                  <div
+                    onClick={() =>
+                      deletePost(_id, dispatch, encodedToken, toast)
+                    }
+                  >
                     <FontAwesomeIcon
                       icon={faTrash}
                       className="ellipsis-action-icons"
                     />
-                    <p
-                      onClick={() =>
-                        deletePost(_id, dispatch, encodedToken, toast)
-                      }
-                    >
-                      Delete
-                    </p>
+                    <p>Delete</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +127,7 @@ export default function Post({
                 : likePost(_id, dispatch, encodedToken, toast)
             }
           />
-          {likes.likeCount}
+          {/* {likes.likeCount} */}
         </div>
 
         <FontAwesomeIcon

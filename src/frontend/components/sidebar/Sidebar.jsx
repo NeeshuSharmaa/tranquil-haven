@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,19 +32,23 @@ export default function Sidebar() {
           <FontAwesomeIcon className="fa-icons" icon={faBookmark} />
           <span>Bookmarks</span>
         </NavLink>
-        <NavLink className={activeStyle} to="/likedPosts">
+        {/* <NavLink className={activeStyle} to="/likedPosts">
           <FontAwesomeIcon className="fa-icons" icon={faHeart} />
           <span>Liked Posts</span>
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className="sidebar-profile">
-        <img src={currentUser?.image} alt="user" className="user-img" />
-        <div className="profile-main">
-          <p className="name">{`${currentUser?.firstName} ${" "} ${
-            currentUser?.lastName
-          }`}</p>
-          <p>{currentUser?.email}</p>
-        </div>
+        <Link to={`/profile/${currentUser?._id}`}>
+          <img src={currentUser?.image} alt="user" className="user-img" />
+        </Link>
+        <Link to={`/profile/${currentUser?._id}`}>
+          <div className="profile-main">
+            <p className="name">{`${currentUser?.firstName} ${" "} ${
+              currentUser?.lastName
+            }`}</p>
+            <p>{currentUser?.email}</p>
+          </div>
+        </Link>
         <FontAwesomeIcon
           icon={faRightFromBracket}
           className="fa-icons"

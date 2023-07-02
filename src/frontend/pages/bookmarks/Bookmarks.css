@@ -1,0 +1,8 @@
+.bookmarks {
+    background-color: var(--gray-bg-color);
+    padding: 2rem;
+    align-self: center;
+    min-height:100vh;
+
+
+}

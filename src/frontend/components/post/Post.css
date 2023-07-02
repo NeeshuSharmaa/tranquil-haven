@@ -47,12 +47,14 @@
   display:flex;
   gap:1.5rem;
   align-items:center;
-  color:lightsteelblue
+  color:lightsteelblue;
+  cursor: pointer
 }
 .post-actions>.post-likes{
   display:flex;
   align-items:center;
   gap:0.25rem;
+  
 }
 
 .ellipsis-container{

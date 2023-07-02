@@ -19,7 +19,7 @@ export const posts = [
     content:
       "In the depths of those soulful eyes, caught a glimpse of something profound—an unspoken emotion that tugged at my heartstrings. It's the unmistakable loneliness that's lingering in the gaze, reminding us of their capacity to feel and their yearning for connection.",
     likes: {
-      likeCount: 3,
+      likeCount: 52,
       likedBy: ["noahdavis", "neeyasharmaa", "kathwilson"],
       dislikedBy: [],
     },
@@ -36,7 +36,7 @@ export const posts = [
     content:
       "I couldn't resist capturing this moment of pure beauty. 🌸 As the warm sun kissed my skin, I couldn't help but feel gratitude for being able to witness such natural wonders. It's a reminder to slow down, embrace the present, and find joy in the simplest of things.",
     likes: {
-      likeCount: 4,
+      likeCount: 62,
       likedBy: ["noahdavis", "neeyasharmaa", "kathwilson", "jamesanderson"],
       dislikedBy: [],
     },
@@ -51,7 +51,7 @@ export const posts = [
     image: "/assets/images/book.jpeg",
     content: "Truly Madly Deeply",
     likes: {
-      likeCount: 1,
+      likeCount: 56,
       likedBy: ["neeyasharmaa"],
       dislikedBy: [],
     },
@@ -65,7 +65,7 @@ export const posts = [
     image: "/assets/images/monkey.jpeg",
     content: "Finding Comfort in the Chaos 🤍",
     likes: {
-      likeCount: 0,
+      likeCount: 25,
       likedBy: [],
       dislikedBy: [],
     },
@@ -79,7 +79,7 @@ export const posts = [
     content:
       "Let loose and dance to your own beat. 💃 Who cares if your moves are unconventional or your rhythm is questionable? Let your inner goofball shine and embrace the joy of being uniquely you. Life's too short to worry about being perfect! #DanceLikeNobody'sWatching #EmbraceTheChaos #LaughOutLoud",
     likes: {
-      likeCount: 0,
+      likeCount: 56,
       likedBy: [],
       dislikedBy: [],
     },
@@ -94,7 +94,7 @@ export const posts = [
     content:
       "La belleza está en todas partes, solo necesitamos abrir los ojos para verla.🍀",
     likes: {
-      likeCount: 0,
+      likeCount: 10,
       likedBy: [],
       dislikedBy: [],
     },
@@ -109,7 +109,7 @@ export const posts = [
     content:
       "Being lost in the depth and enigma of dark night. Casting the enchanting spells!",
     likes: {
-      likeCount: 0,
+      likeCount: 25,
       likedBy: ["jamesanderson", "kathwilson"],
       dislikedBy: [],
     },
@@ -125,7 +125,7 @@ export const posts = [
     content:
       "Embracing the embrace of nature's gentle caress! Let's take a moment to immerse ourselves in the soothing symphony of birdsong and the serenity of a sun-dappled forest. Nature's wonders are a reminder of our connection to something greater. #NatureInspires #FindYourBliss 🌎",
     likes: {
-      likeCount: 4,
+      likeCount: 50,
       likedBy: ["noahdavis", "neeyasharmaa", "kathwilson", "jamesanderson"],
       dislikedBy: [],
     },
