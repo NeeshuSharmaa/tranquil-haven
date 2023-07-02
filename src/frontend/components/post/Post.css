@@ -62,7 +62,7 @@
   top:5%;
   right:-20%;
   border-radius:0.5rem;
-  
+  padding:1rem 0;
   background-color: var(--bluish-white);
   display:flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
   right:-5%;
   padding:0.2rem;
   border-radius:50%;
-  background-color:cornflowerblue;
+  background-color:rgb(60, 90, 145);
   color:white;
   cursor:pointer;
   height:15px;
@@ -93,23 +93,21 @@
   display:flex;
   gap:0.5rem;
   align-items: center;
-  padding:1rem 1.25rem;
+  padding:0.5rem 1.25rem;
 }
 .ellipsis-action-icons{
-  color:cornflowerblue;
+  color:rgb(60, 90, 145)
 }
 .ellipsis-container>div>div:hover{
-  background-color:rgb(213, 228, 255);
+  background-color:rgb(178, 204, 252);
   cursor:pointer;
   
 }
 .ellipsis-container>div>div:first-child{
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+
   color: var(--dark-primary);
 }
 .ellipsis-container>div>div:nth-child(2){
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+ 
   color: var(--dark-primary);
 }

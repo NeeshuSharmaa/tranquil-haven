@@ -19,6 +19,8 @@ export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(JSON.parse(user));
   const [encodedToken, setEncodedToken] = useState(token);
 
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+
   const loginHandler = async (username, password) => {
     try {
       const {
@@ -90,6 +92,8 @@ export default function AuthContextProvider({ children }) {
     signupHandler,
     logoutHandler,
     getUserDetails,
+    showEditProfileModal,
+    setShowEditProfileModal,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }

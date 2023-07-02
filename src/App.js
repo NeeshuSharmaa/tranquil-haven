@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./frontend/components/sidebar/Sidebar";
 import PostModal from "./frontend/components/postModal/PostModal";
+import EditProfileModal from "./frontend/components/editprofileModal/EditProfileModal";
 
 function App() {
   const { pathname } = useLocation();
@@ -86,6 +87,7 @@ function App() {
         theme="colored"
       />
       <PostModal />
+      <EditProfileModal />
     </div>
   );
 }

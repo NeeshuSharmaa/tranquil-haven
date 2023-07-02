@@ -7,7 +7,7 @@
     left: 0;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--modal-bg);
 }
 
 .model-content {
@@ -30,20 +30,20 @@
     border-bottom: 1px solid lightGray;
 }
 
-.modal-footer {
+.modal>.modal-footer {
     padding: 2rem;
     display: flex;
     justify-content: space-around;
     /* background-color: rgb(239, 239, 241); */
     border-top: 1px solid lightGray;
 }
-.modal-footer>span{
+.modal>.modal-footer>span{
     cursor:pointer
 }
-.modal-footer>span:first-child{
+.modal>.modal-footer>span:first-child{
     color:cornflowerblue;
 
 }
-.modal-footer>span:nth-child(2){
+.modal>.modal-footer>span:nth-child(2){
     color:gray;
 }

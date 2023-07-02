@@ -5,7 +5,7 @@ import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Profile.css";
 
 export default function Profile() {
-  const { currentUser } = useAuthContext();
+  const { currentUser, setShowEditProfileModal } = useAuthContext();
   const { postsByUser } = usePostsContext();
 
   return (
@@ -26,7 +26,12 @@ export default function Profile() {
             </div>
           </div>
           <div className="profile-hero-actions">
-            <button className="edit">Edit Profile</button>
+            <button
+              className="edit"
+              onClick={() => setShowEditProfileModal(true)}
+            >
+              Edit Profile
+            </button>
             <button className="logout">Logout</button>
           </div>
         </div>

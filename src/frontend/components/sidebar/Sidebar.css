@@ -10,7 +10,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  z-index:5;
+  /* z-index:5; */
 }
 .nav-sidebar>h2{
   background: -webkit-linear-gradient(bottom, rgb(54, 89, 154), cornflowerblue);
