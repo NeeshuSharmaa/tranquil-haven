@@ -111,3 +111,27 @@
  
   color: var(--dark-primary);
 }
+
+.post-head>button{
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  height:max-content;
+  
+}
+.post-head>.follow{
+  background-color: var(--bluish-white);
+    
+
+}
+.unfollow{
+  
+  border: 2px solid grey;
+    background-color: white;
+   
+
+}
+.profile-image-inner>input[type="file"]{
+  display:none;
+}

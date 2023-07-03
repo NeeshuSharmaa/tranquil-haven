@@ -15,8 +15,8 @@ import { createPost } from "../../services/PostServices";
 export default function Home() {
   const { currentUser, encodedToken } = useAuthContext();
   const {
-    postsByUser,
     postsState: {
+      userPosts,
       sortBy: { latest, trending },
     },
     dispatch,
@@ -27,7 +27,7 @@ export default function Home() {
   let postsToDisplay;
 
   if (latest) {
-    const sortedPosts = [...postsByUser].sort(
+    const sortedPosts = [...userPosts].sort(
       (postA, postB) =>
         new Date(postB.createdAt.unformatted) -
         new Date(postA.createdAt.unformatted)
@@ -35,12 +35,12 @@ export default function Home() {
 
     postsToDisplay = sortedPosts;
   } else if (trending) {
-    const sortedPosts = [...postsByUser].sort(
+    const sortedPosts = [...userPosts].sort(
       (postA, postB) => postB.likes.likeCount - postA.likes.likeCount
     );
     postsToDisplay = sortedPosts;
   } else {
-    postsToDisplay = postsByUser;
+    postsToDisplay = userPosts;
   }
 
   return (

@@ -40,7 +40,6 @@ export default function Post({
   const getDateAndTime = (createdAt) => createdAt.formatted.replace("at", " ");
 
   const [showEllipsisActions, setShowEllipsisAction] = useState(false);
-  console.log("like count", likes.likeCount);
 
   const editHandler = () => {
     console.log("edit1");
@@ -51,6 +50,8 @@ export default function Post({
 
   const inLikedPosts = postsState.likedPosts.find(({ _id: id }) => id === _id);
   const inBookmarks = postsState.bookmarks.find(({ _id: id }) => id === _id);
+  const isUserPost = currentUser.username === username;
+  const isInFollowing = currentUser.following.includes(username);
 
   return (
     <div className="post-outer-container">
@@ -67,7 +68,7 @@ export default function Post({
           </div>
         </div>
 
-        {currentUser.username === username && (
+        {isUserPost && (
           <>
             {!showEllipsisActions && (
               <FontAwesomeIcon
@@ -108,6 +109,11 @@ export default function Post({
             )}
           </>
         )}
+        {!isUserPost && (
+          <button className={isInFollowing ? "unfollow" : "follow"}>
+            {isInFollowing ? "Unfollow" : "Follow"}
+          </button>
+        )}
       </div>
       <div className="post-content">
         <p>{content}</p>
@@ -127,7 +133,7 @@ export default function Post({
                 : likePost(_id, dispatch, encodedToken, toast)
             }
           />
-          {/* {likes.likeCount} */}
+          {likes.likeCount}
         </div>
 
         <FontAwesomeIcon

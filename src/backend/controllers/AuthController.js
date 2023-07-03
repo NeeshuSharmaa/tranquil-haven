@@ -41,6 +41,7 @@ export const signupHandler = function (schema, request) {
       following: [],
       bookmarks: [],
     };
+    console.log("new user", newUser);
     const createdUser = schema.users.create(newUser);
     const encodedToken = sign(
       { _id, username },

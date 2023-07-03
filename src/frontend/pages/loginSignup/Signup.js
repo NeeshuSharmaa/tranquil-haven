@@ -20,7 +20,13 @@ export default function Signup() {
       e.target.elements;
 
     if (password.value === confirmPassword.value) {
-      signupHandler(username.value, password.value);
+      signupHandler(
+        username.value,
+        password.value,
+        email.value,
+        firstName.value,
+        lastName.value
+      );
     } else {
       toast.warning("Password and confirm password must match", {
         className: "toast-message",

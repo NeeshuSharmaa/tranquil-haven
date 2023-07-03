@@ -21,7 +21,13 @@ export default function AuthContextProvider({ children }) {
 
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
 
-  const loginHandler = async (username, password) => {
+  const loginHandler = async (
+    username,
+    password,
+    email,
+    firstName,
+    lastName
+  ) => {
     try {
       const {
         data: { encodedToken, foundUser },
@@ -42,19 +48,32 @@ export default function AuthContextProvider({ children }) {
       toast.error("Log In service error", { className: "toast-message" });
     }
   };
-  const signupHandler = async (username, password) => {
+  const signupHandler = async (
+    username,
+    password,
+    email,
+    firstName,
+    lastName
+  ) => {
     try {
       const {
         data: { encodedToken, createdUser },
       } = await axios.post("/api/auth/signup", {
         username,
         password,
+        email,
+        firstName,
+        lastName,
       });
+      const userCreated = {
+        ...createdUser,
+        image: "/assets/images/default-avatar.jpg",
+      };
       setUsers((users) => [...users, createdUser]);
-      setCurrentUser(createdUser);
+      setCurrentUser(userCreated);
       setEncodedToken(encodedToken);
       localStorage.setItem("token", JSON.stringify(encodedToken));
-      localStorage.setItem("user", JSON.stringify(createdUser));
+      localStorage.setItem("user", JSON.stringify(userCreated));
 
       setLoggedIn(true);
       toast.success("Signed Up successfully", { className: "toast-message" });
@@ -67,6 +86,7 @@ export default function AuthContextProvider({ children }) {
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setLoggedIn(false);
     setCurrentUser(null);
     setEncodedToken(null);
@@ -81,10 +101,12 @@ export default function AuthContextProvider({ children }) {
       userImg: findUser.image,
     };
   };
-
+  console.log("users", users);
   const values = {
     users,
+    setUsers,
     currentUser,
+    setCurrentUser,
     encodedToken,
     loggedIn,
     setLoggedIn,

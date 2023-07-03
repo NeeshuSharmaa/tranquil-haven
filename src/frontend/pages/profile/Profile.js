@@ -5,8 +5,13 @@ import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Profile.css";
 
 export default function Profile() {
-  const { currentUser, setShowEditProfileModal } = useAuthContext();
-  const { postsByUser } = usePostsContext();
+  const { currentUser, setShowEditProfileModal, logoutHandler } =
+    useAuthContext();
+  const {
+    postsState: { userPosts },
+  } = usePostsContext();
+
+  console.log("from profile", userPosts, "current", currentUser);
 
   return (
     <div className="profile">
@@ -22,33 +27,38 @@ export default function Profile() {
               <p>{`${currentUser?.firstName} ${" "} ${
                 currentUser?.lastName
               }`}</p>
-              <p className="grey-color">@{currentUser.username}</p>
+              <p className="grey-color">@{currentUser?.username}</p>
             </div>
           </div>
           <div className="profile-hero-actions">
             <button
               className="edit"
-              onClick={() => setShowEditProfileModal(true)}
+              onClick={() => {
+                setShowEditProfileModal(true);
+                console.log("user", currentUser);
+              }}
             >
               Edit Profile
             </button>
-            <button className="logout">Logout</button>
+            <button className="logout" onClick={logoutHandler}>
+              Logout
+            </button>
           </div>
         </div>
         <div className="hero-mid">
-          <p>How you doing? SHINING!</p>
+          <p>{currentUser?.bio}</p>
 
-          <Link to="">www.hello.com</Link>
+          <Link to={currentUser?.website}>{currentUser?.website}</Link>
         </div>
 
         <div className="hero-footer">
-          <p>{postsByUser.length} posts</p>
-          <p>{currentUser.followers.length} followers</p>
-          <p>{currentUser.following.length} following</p>
+          <p>{userPosts.length} posts</p>
+          <p>{currentUser?.followers.length} followers</p>
+          <p>{currentUser?.following.length} following</p>
         </div>
       </section>
       <div className="posts-outer-container">
-        {postsByUser?.map((post) => (
+        {userPosts?.map((post) => (
           <Post {...post} key={post._id} />
         ))}
       </div>

@@ -21,18 +21,14 @@ export default function PostsContextProvider({ children }) {
 
   const initialState = {
     posts: [],
+    userPosts: [],
     bookmarks: [],
     likedPosts: [],
     sortBy: { latest: false, trending: false },
   };
   const [postsState, dispatch] = useReducer(postsReducer, initialState);
 
-  const postsByUser = postsState.posts.filter(
-    ({ username }) => username === currentUser?.username
-  );
-
   const values = {
-    postsByUser,
     postsState,
     dispatch,
     editPost,
@@ -45,7 +41,7 @@ export default function PostsContextProvider({ children }) {
     if (currentUser) {
       fetchPosts(dispatch, currentUser);
     }
-  }, [dispatch, currentUser]);
+  }, []);
 
   return (
     <PostsContext.Provider value={values}>{children}</PostsContext.Provider>
