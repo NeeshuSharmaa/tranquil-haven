@@ -57,11 +57,18 @@ export default function Profile() {
           <p>{currentUser?.following.length} following</p>
         </div>
       </section>
-      <div className="posts-outer-container">
-        {userPosts?.map((post) => (
-          <Post {...post} key={post._id} />
-        ))}
-      </div>
+      {userPosts.length ? (
+        <div className="posts-outer-container">
+          {userPosts?.map((post) => (
+            <Post {...post} key={post._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-posts-container">
+          {" "}
+          You haven't posted anything yet
+        </div>
+      )}
     </div>
   );
 }

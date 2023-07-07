@@ -14,11 +14,18 @@ export default function Bookmarks() {
 
   return (
     <div className="bookmarks">
-      <div className="posts-outer-container">
-        {bookmarkPosts?.map((post) => (
-          <Post {...post} key={post._id} />
-        ))}
-      </div>
+      <h2>Bookmarks</h2>
+      {bookmarkPosts.length ? (
+        <div className="posts-outer-container">
+          {bookmarkPosts?.map((post) => (
+            <Post {...post} key={post._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-posts-container">
+          You have not bookmarked anything yet
+        </div>
+      )}
     </div>
   );
 }
