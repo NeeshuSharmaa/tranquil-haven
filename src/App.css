@@ -52,3 +52,11 @@ input:focus{
   gap: 1rem;
   align-items:center;
 }
+
+
+.head {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  align-items: center;
+}

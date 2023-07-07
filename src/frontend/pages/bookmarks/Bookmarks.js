@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Post from "../../components/post/Post";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Bookmarks.css";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 export default function Bookmarks() {
   const {
@@ -14,7 +16,10 @@ export default function Bookmarks() {
 
   return (
     <div className="bookmarks">
-      <h2>Bookmarks</h2>
+      <div className="head">
+        <FontAwesomeIcon icon={faArrowLeftLong} />
+        <h2>Bookmarks</h2>
+      </div>
       {bookmarkPosts.length ? (
         <div className="posts-outer-container">
           {bookmarkPosts?.map((post) => (

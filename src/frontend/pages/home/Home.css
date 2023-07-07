@@ -1,10 +1,12 @@
 .home {
   background-color: var(--gray-bg-color);
   padding:2rem;
-  align-self: center;
   display:flex;
   flex-direction: column;
   gap:1.5rem;
+}
+.home>h2{
+  padding-top:1rem;
 }
 .tweet-container {
   position:relative;
@@ -71,4 +73,10 @@ textarea:focus {
 }
 .filter-icon{
   
+}
+
+.home>.empty-posts-container{
+  text-align:center;
+  padding-top:2rem;
+
 }

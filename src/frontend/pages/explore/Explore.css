@@ -1,7 +1,11 @@
 .explore{
+    display:flex;
+    flex-direction:column;
     background-color: var(--gray-bg-color);
         padding: 2rem;
         align-self: center;
+        gap:1.5rem;
         
        
 }
+
