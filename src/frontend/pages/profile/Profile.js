@@ -3,18 +3,26 @@ import Post from "../../components/post/Post";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Profile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile() {
   const { currentUser, setShowEditProfileModal, logoutHandler } =
     useAuthContext();
   const {
-    postsState: { userPosts },
+    postsState: { posts },
   } = usePostsContext();
 
-  console.log("from profile", userPosts, "current", currentUser);
+  const userPosts = posts.filter(
+    ({ username }) => username === currentUser.username
+  );
 
   return (
     <div className="profile">
+      <div className="head">
+        <FontAwesomeIcon icon={faArrowLeftLong} />
+        <h2>Profile</h2>
+      </div>
       <section className="profile-hero-section">
         <div className="hero-header">
           <div className="user-info">

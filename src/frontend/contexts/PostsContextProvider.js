@@ -2,12 +2,12 @@ import {
   useContext,
   createContext,
   useReducer,
-  useEffect,
   useState,
+  useEffect,
 } from "react";
 import { postsReducer } from "../reducers/PostsReducer";
-import { fetchPosts } from "../services/PostServices";
 import { useAuthContext } from "./AuthContextProvider";
+import { fetchPosts } from "../services/PostServices";
 
 const PostsContext = createContext();
 
@@ -21,7 +21,6 @@ export default function PostsContextProvider({ children }) {
 
   const initialState = {
     posts: [],
-    userPosts: [],
     bookmarks: [],
     likedPosts: [],
     sortBy: { latest: false, trending: false },
@@ -36,12 +35,12 @@ export default function PostsContextProvider({ children }) {
     showEditPostModal,
     setShowEditPostModal,
   };
-
   useEffect(() => {
     if (currentUser) {
       fetchPosts(dispatch, currentUser);
+      localStorage.setItem("posts", JSON.stringify(postsState.posts));
     }
-  }, []);
+  }, [postsState.posts]);
 
   return (
     <PostsContext.Provider value={values}>{children}</PostsContext.Provider>

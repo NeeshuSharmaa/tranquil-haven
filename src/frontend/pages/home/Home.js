@@ -16,7 +16,7 @@ export default function Home() {
   const { currentUser, encodedToken } = useAuthContext();
   const {
     postsState: {
-      userPosts,
+      posts,
       sortBy: { latest, trending },
     },
     dispatch,
@@ -27,7 +27,7 @@ export default function Home() {
   let postsToDisplay;
 
   if (latest) {
-    const sortedPosts = [...userPosts].sort(
+    const sortedPosts = [...posts].sort(
       (postA, postB) =>
         new Date(postB.createdAt.unformatted) -
         new Date(postA.createdAt.unformatted)
@@ -35,16 +35,17 @@ export default function Home() {
 
     postsToDisplay = sortedPosts;
   } else if (trending) {
-    const sortedPosts = [...userPosts].sort(
+    const sortedPosts = [...posts].sort(
       (postA, postB) => postB.likes.likeCount - postA.likes.likeCount
     );
     postsToDisplay = sortedPosts;
   } else {
-    postsToDisplay = userPosts;
+    postsToDisplay = posts;
   }
 
   return (
     <div className="home">
+      <h2>Home</h2>
       <div className="tweet-container">
         <img
           src={currentUser.image}
@@ -83,11 +84,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="posts-outer-container">
-        {postsToDisplay?.map((post) => (
-          <Post {...post} key={post._id} />
-        ))}
-      </div>
+      {postsToDisplay.length ? (
+        <div className="posts-outer-container">
+          {postsToDisplay?.map((post) => (
+            <Post {...post} key={post._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-posts-container">There are no posts to show!</div>
+      )}
     </div>
   );
 }

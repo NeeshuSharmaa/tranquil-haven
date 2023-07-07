@@ -4,23 +4,15 @@ export const postsReducer = (state, { type, payload }) => {
       const likedByUser = payload.posts.filter(({ likes: { likedBy } }) =>
         likedBy.includes(payload.currentUser.username)
       );
-      const postsByUser = payload.posts.filter(
-        ({ username }) => username === payload.currentUser.username
-      );
+
       return {
         ...state,
         posts: payload.posts,
         likedPosts: likedByUser,
-        userPosts: postsByUser,
       };
     }
     case "UPDATE_POSTS": {
-      console.log("posts...", payload);
-      const postsByUser = payload.posts.filter(
-        ({ username }) => username === payload.username
-      );
-      console.log("here in reducer", postsByUser);
-      return { ...state, posts: payload.posts, userPosts: postsByUser };
+      return { ...state, posts: payload.posts };
     }
     case "SORT_BY_TRENDING": {
       return { ...state, sortBy: { latest: false, trending: true } };

@@ -8,11 +8,13 @@ export const fetchPosts = async (dispatch, currentUser) => {
     } = await axios.get("/api/posts");
     if (status === 200) {
       dispatch({ type: "SET_ALL_POSTS", payload: { posts, currentUser } });
+      localStorage.setItem("posts", JSON.stringify(posts));
     }
   } catch (e) {
     console.log(e);
   }
 };
+
 export const createPost = async (
   postContent,
   dispatch,
@@ -63,6 +65,7 @@ export const deletePost = async (id, dispatch, authorization, toast) => {
     toast.error("delete post service error", { className: "toast-message" });
   }
 };
+
 export const editPostHandler = async (
   editPost,
   dispatch,
