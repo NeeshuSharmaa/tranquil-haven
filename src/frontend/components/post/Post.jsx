@@ -32,7 +32,7 @@ export default function Post({
   image,
 }) {
   const { currentUser, getUserDetails, encodedToken } = useAuthContext();
-  const { postsState, dispatch, setShowEditPostModal, editPost, setEditPost } =
+  const { postsState, dispatch, setShowEditPostModal, setEditPost } =
     usePostsContext();
 
   const { name, userImg } = getUserDetails(username);

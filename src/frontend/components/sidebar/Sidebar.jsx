@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
   faCompass,
-  faHeart,
   faHouse,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";

@@ -41,6 +41,7 @@ export default function AuthContextProvider({ children }) {
       localStorage.setItem("user", JSON.stringify(foundUser));
 
       setLoggedIn(true);
+
       toast.success("Logged in successfully", { className: "toast-message" });
       navigate("/");
     } catch (e) {
@@ -76,6 +77,7 @@ export default function AuthContextProvider({ children }) {
       localStorage.setItem("user", JSON.stringify(userCreated));
 
       setLoggedIn(true);
+
       toast.success("Signed Up successfully", { className: "toast-message" });
       navigate("/");
     } catch (e) {
@@ -87,6 +89,7 @@ export default function AuthContextProvider({ children }) {
   const logoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("posts");
     setLoggedIn(false);
     setCurrentUser(null);
     setEncodedToken(null);
