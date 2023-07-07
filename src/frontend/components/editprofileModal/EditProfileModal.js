@@ -2,10 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import "./EditProfileModal.css";
 import { faImage, faUser } from "@fortawesome/free-regular-svg-icons";
-import { faCamera, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import {
+  faUpload,
+  faUserCircle,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
+import AvatarModal from "../avatarModal/AvatarModal";
 
 export default function EditProfileModal() {
   const {
@@ -14,13 +19,15 @@ export default function EditProfileModal() {
     currentUser,
     setCurrentUser,
     setUsers,
-    users,
   } = useAuthContext();
   const {
     postsState: { posts },
     dispatch,
   } = usePostsContext();
-  const [showChangeImage, setShowChangeImage] = useState(false);
+  const [showChangeImage, setShowChangeImage] = useState({
+    outer: false,
+    avatar: false,
+  });
   const [editProfileInput, setEditProfileInput] = useState({
     image: currentUser?.image,
     firstName: currentUser?.firstName,
@@ -34,7 +41,7 @@ export default function EditProfileModal() {
 
   const chooseImageHandler = () => {
     imageRef.current.click();
-    setShowChangeImage(false);
+    setShowChangeImage((prev) => ({ ...prev, outer: false }));
   };
   const editProfileHandler = () => {
     const updatedPosts = posts.map((post) =>
@@ -94,21 +101,43 @@ export default function EditProfileModal() {
               />
               <div
                 className="change-img"
-                onClick={() => setShowChangeImage(true)}
+                onClick={() =>
+                  setShowChangeImage((prev) => ({ ...prev, outer: true }))
+                }
               >
                 <FontAwesomeIcon icon={faImage} className="change-img-icon" />
               </div>
-              {showChangeImage && (
+              {showChangeImage.outer && (
                 <div className="change-img-option">
                   <FontAwesomeIcon
                     icon={faXmark}
                     className="xMark"
-                    onClick={() => setShowChangeImage(false)}
+                    onClick={() =>
+                      setShowChangeImage((prev) => ({ ...prev, outer: false }))
+                    }
                   />
-                  <span onClick={chooseImageHandler}>Choose Image</span>
+                  <span onClick={chooseImageHandler}>
+                    <FontAwesomeIcon icon={faUpload} className="icon" /> Upload
+                  </span>
 
-                  <span>Choose Avatar</span>
+                  <span
+                    onClick={() =>
+                      setShowChangeImage((prev) => ({
+                        ...prev,
+                        avatar: true,
+                      }))
+                    }
+                  >
+                    <FontAwesomeIcon icon={faUserCircle} className="icon" />
+                    Choose Avatar
+                  </span>
                 </div>
+              )}
+              {showChangeImage.avatar && (
+                <AvatarModal
+                  setShowChangeImage={setShowChangeImage}
+                  setEditProfileInput={setEditProfileInput}
+                />
               )}
             </div>
           </div>
@@ -191,7 +220,21 @@ export default function EditProfileModal() {
             Save
           </span>
           <span> | </span>
-          <span onClick={() => setShowEditProfileModal(false)}>Cancel</span>
+          <span
+            onClick={() => {
+              setShowEditProfileModal(false);
+              setEditProfileInput((prev) => ({
+                image: currentUser?.image,
+                firstName: currentUser?.firstName,
+                lastName: currentUser?.lastName,
+                username: currentUser?.username,
+                bio: "",
+                website: "",
+              }));
+            }}
+          >
+            Cancel
+          </span>
         </div>
       </div>
     </div>

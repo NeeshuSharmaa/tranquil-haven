@@ -30,20 +30,20 @@
     border-bottom: 1px solid lightGray;
 }
 
-.modal>.modal-footer {
+.model-content>.modal-footer {
     padding: 2rem;
     display: flex;
     justify-content: space-around;
     /* background-color: rgb(239, 239, 241); */
     border-top: 1px solid lightGray;
 }
-.modal>.modal-footer>span{
+.model-content>.modal-footer>span{
     cursor:pointer
 }
-.modal>.modal-footer>span:first-child{
+.model-content>.modal-footer>span:first-child{
     color:cornflowerblue;
 
 }
-.modal>.modal-footer>span:nth-child(2){
+.model-content>.modal-footer>span:nth-child(2){
     color:gray;
 }

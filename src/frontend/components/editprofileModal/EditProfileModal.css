@@ -56,10 +56,10 @@
 }
 .change-img-option>.xMark{
     position:absolute;
-    width:15px;
-    height:15px;
-    top:-10%;
-    right:-10%;
+    width:10px;
+    height:10px;
+    top:-5%;
+    right:-5%;
     padding:0.5rem;
     color:white;
     background-color: rgb(60, 90, 145);
@@ -68,9 +68,18 @@
 }
 .change-img-option>span{
     padding:0.5rem 1.25rem;
-    cursor:pointer
+    cursor:pointer;
+    
     
 }
+.change-img-option>span>.icon{
+
+    width: 20px;
+        height: 15px;
+        margin-right: 0.2rem;
+
+}
+
 .change-img-option>span:hover{
     background-color:rgb(178, 204, 252);
 }
