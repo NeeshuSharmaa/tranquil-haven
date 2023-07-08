@@ -12,7 +12,6 @@ export default function Login() {
     const { username, password } = e.target.elements;
 
     if (username.value && password.value) {
-      console.log("inside if");
       loginHandler(username.value, password.value);
     } else {
       toast.warning("Fill the required input fields", {

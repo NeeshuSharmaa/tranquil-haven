@@ -42,7 +42,6 @@ export default function Post({
   const [showEllipsisActions, setShowEllipsisAction] = useState(false);
 
   const editHandler = () => {
-    console.log("edit1");
     setShowEllipsisAction(false);
     setShowEditPostModal(true);
     setEditPost({ id: _id, content });

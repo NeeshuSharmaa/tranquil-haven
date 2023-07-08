@@ -41,10 +41,7 @@ export default function Profile() {
           <div className="profile-hero-actions">
             <button
               className="edit"
-              onClick={() => {
-                setShowEditProfileModal(true);
-                console.log("user", currentUser);
-              }}
+              onClick={() => setShowEditProfileModal(true)}
             >
               Edit Profile
             </button>
