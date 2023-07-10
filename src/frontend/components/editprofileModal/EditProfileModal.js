@@ -85,7 +85,7 @@ export default function EditProfileModal() {
           <div className="profile-image-outer">
             <div className="profile-image-inner">
               <img
-                src={editProfileInput.image}
+                src={editProfileInput?.image}
                 className="profile-image"
                 alt="profile"
               />
@@ -148,7 +148,7 @@ export default function EditProfileModal() {
               <input
                 type="text"
                 id="first-name"
-                value={editProfileInput.firstName}
+                value={editProfileInput?.firstName}
                 onChange={(e) =>
                   setEditProfileInput((prev) => ({
                     ...prev,
@@ -162,7 +162,7 @@ export default function EditProfileModal() {
               <input
                 type="text"
                 id="last-name"
-                value={editProfileInput.lastName}
+                value={editProfileInput?.lastName}
                 onChange={(e) =>
                   setEditProfileInput((prev) => ({
                     ...prev,
@@ -177,7 +177,7 @@ export default function EditProfileModal() {
             <input
               type="text"
               id="username"
-              value={editProfileInput.username}
+              value={editProfileInput?.username}
               onChange={(e) =>
                 setEditProfileInput((prev) => ({
                   ...prev,
@@ -191,7 +191,7 @@ export default function EditProfileModal() {
             <input
               type="text"
               id="bio"
-              value={editProfileInput.bio}
+              value={editProfileInput?.bio}
               onChange={(e) =>
                 setEditProfileInput((prev) => ({
                   ...prev,
@@ -205,7 +205,7 @@ export default function EditProfileModal() {
             <input
               type="text"
               id="website"
-              value={editProfileInput.website}
+              value={editProfileInput?.website}
               onChange={(e) =>
                 setEditProfileInput((prev) => ({
                   ...prev,
