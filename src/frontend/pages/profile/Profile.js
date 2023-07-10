@@ -26,7 +26,6 @@ export default function Profile() {
   const { id } = useParams();
 
   const findUser = users?.find(({ _id }) => {
-    console.log(id, "_id", _id);
     return _id === id;
   });
   const userPosts = posts?.filter(
@@ -35,16 +34,9 @@ export default function Profile() {
   const showActionBtns =
     findUser.username === currentUser.username ? true : false;
 
-  console.log("user param", findUser);
-  // const showUnfollowBtn = currentUser?.following.includes(findUser.username);
-  // console.log(showUnfollowBtn);
-  // useEffect(() => {
-  //   if (currentUser?.following.includes(findUser.username))
-  //     setShowUnfollowBtn(true);
-  //   else {
-  //     setShowUnfollowBtn(false);
-  //   }
-  // }, [showUnfollowBtn]);
+  const userInFollowing = currentUser?.following.find(
+    ({ username }) => username === findUser.username
+  );
 
   return (
     <div className="profile">
@@ -80,14 +72,14 @@ export default function Profile() {
           )}
           {!showActionBtns && (
             <button
-              className="follow-unfollow-btn"
+              className={userInFollowing ? "unfollow-btn" : "follow-btn"}
               onClick={() =>
-                showUnfollowBtn
+                userInFollowing
                   ? unfollowUser(id, encodedToken)
                   : followUser(id, encodedToken)
               }
             >
-              {showUnfollowBtn ? "Unfollow" : "Follow"}
+              {userInFollowing ? "Unfollow" : "Follow"}
             </button>
           )}
         </div>

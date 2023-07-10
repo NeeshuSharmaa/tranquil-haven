@@ -69,16 +69,28 @@
     background-color: var(--bluish-white);
 
 }
-.follow-unfollow-btn{
+.hero-header>.follow-btn{
     border: 0;
-        padding: 0.5rem 1rem;
-        border-radius: 0.4rem;
-        cursor: pointer;
-        background-color: cornflowerblue;
-            color: white;
-            height:max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    background-color: cornflowerblue;
+    color: white;
+    height: max-content;
 
 }
+.hero-header>.unfollow-btn{
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border:2px solid cornflowerblue;
+    color: cornflowerblue;
+    background-color: white;
+    height: max-content;
+
+}
+
 .hero-mid{
     display:flex;
     flex-direction: column;
