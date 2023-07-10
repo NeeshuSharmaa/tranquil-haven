@@ -33,8 +33,8 @@ export default function EditProfileModal() {
     firstName: currentUser?.firstName,
     lastName: currentUser?.lastName,
     username: currentUser?.username,
-    bio: "",
-    website: "",
+    bio: currentUser?.bio || "",
+    website: currentUser?.website || "",
   });
 
   const imageRef = useRef();
