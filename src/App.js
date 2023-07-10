@@ -15,6 +15,7 @@ import Sidebar from "./frontend/components/sidebar/Sidebar";
 import PostModal from "./frontend/components/postModal/PostModal";
 import EditProfileModal from "./frontend/components/editprofileModal/EditProfileModal";
 import UsersListSidebar from "./frontend/components/usersListSidebar/UsersListSidebar";
+import CreatePost from "./frontend/components/createPost/CreatePost";
 
 function App() {
   const { pathname } = useLocation();
@@ -89,6 +90,7 @@ function App() {
       />
       <PostModal />
       <EditProfileModal />
+      <CreatePost />
     </div>
   );
 }

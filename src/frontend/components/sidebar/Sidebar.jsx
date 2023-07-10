@@ -8,12 +8,14 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
+import { usePostsContext } from "../../contexts/PostsContextProvider";
 
 export default function Sidebar() {
   const activeStyle = ({ isActive }) =>
     isActive ? "active sidebar-link-child" : "sidebar-link-child";
 
   const { currentUser, logoutHandler } = useAuthContext();
+  const { setShowCreatePostModal } = usePostsContext();
 
   return (
     <aside className="nav-sidebar">
@@ -35,6 +37,12 @@ export default function Sidebar() {
           <FontAwesomeIcon className="fa-icons" icon={faHeart} />
           <span>Liked Posts</span>
         </NavLink> */}
+        <button
+          className="create-post"
+          onClick={() => setShowCreatePostModal(true)}
+        >
+          Create New Post
+        </button>
       </div>
       <div className="sidebar-profile">
         <Link to={`/profile/${currentUser?._id}`}>

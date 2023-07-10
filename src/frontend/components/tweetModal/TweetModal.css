@@ -1,0 +1,42 @@
+.tweet-container {
+    position: relative;
+    width: calc(500px + 4rem);
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    border-radius: 0.5rem;
+    
+}
+
+textarea {
+    border: 0;
+    padding: 2rem;
+
+    resize: none;
+    width: 80%;
+
+}
+
+
+textarea:focus {
+    outline: none;
+}
+
+.tweet-container>button {
+    background-color: cornflowerblue;
+    box-shadow: 1px 1px 2px rgb(62, 90, 142);
+    border: 0;
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    align-self: flex-end;
+    position: absolute;
+    bottom: 10%;
+    right: 4%;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+
+}

@@ -10,12 +10,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { createPost, fetchPosts } from "../../services/PostServices";
+import { useEffect } from "react";
+
+import { fetchPosts } from "../../services/PostServices";
+import TweetModal from "../../components/tweetModal/TweetModal";
 
 export default function Home() {
-  const { currentUser, encodedToken } = useAuthContext();
+  const { currentUser } = useAuthContext();
   const {
     postsState: {
       posts,
@@ -23,8 +24,6 @@ export default function Home() {
     },
     dispatch,
   } = usePostsContext();
-
-  const [post, setPost] = useState("");
 
   let postsToDisplay;
 
@@ -63,27 +62,8 @@ export default function Home() {
   return (
     <div className="home">
       <h2 className="head">Home</h2>
-      <div className="tweet-container">
-        <img
-          src={currentUser.image}
-          alt={currentUser.username}
-          className="user-img"
-        />
-        <textarea
-          value={post}
-          placeholder="What's cooking in your head?"
-          onChange={(e) => setPost(e.target.value)}
-        />
-        <button
-          onClick={() => {
-            createPost(post, dispatch, encodedToken, toast);
-            setPost("");
-          }}
-        >
-          <span>Post </span>
-          <FontAwesomeIcon icon={faPaperPlane} />
-        </button>
-      </div>
+      <TweetModal />
+
       <div className="filter">
         <div
           className={trending ? "active-filter" : ""}

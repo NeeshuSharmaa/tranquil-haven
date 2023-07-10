@@ -20,7 +20,7 @@
 .sidebar-links {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .sidebar-link-child {
   display: flex;
@@ -32,6 +32,14 @@
 .sidebar-link-child:hover {
   background-color: white;
   border-radius: 0.5rem;
+}
+.sidebar-links>button{
+  border-radius:0.4rem;
+  padding:0.8rem 1rem;
+  border:0;
+  background-color:cornflowerblue;
+  color:white;
+
 }
 .active {
   color: cornflowerblue;

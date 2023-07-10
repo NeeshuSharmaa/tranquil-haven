@@ -16,6 +16,7 @@ export const usePostsContext = () => useContext(PostsContext);
 export default function PostsContextProvider({ children }) {
   const [showEditPostModal, setShowEditPostModal] = useState(false);
   const [editPost, setEditPost] = useState(null);
+  const [showCreatePostModal, setShowCreatePostModal] = useState(false);
 
   const { currentUser } = useAuthContext();
 
@@ -36,6 +37,8 @@ export default function PostsContextProvider({ children }) {
     setEditPost,
     showEditPostModal,
     setShowEditPostModal,
+    showCreatePostModal,
+    setShowCreatePostModal,
   };
 
   return (
