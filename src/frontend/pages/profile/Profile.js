@@ -1,21 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Post from "../../components/post/Post";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 export default function Profile() {
-  const { currentUser, setShowEditProfileModal, logoutHandler } =
-    useAuthContext();
+  const {
+    encodedToken,
+    currentUser,
+    users,
+    setShowEditProfileModal,
+    logoutHandler,
+    followUser,
+    unfollowUser,
+    showUnfollowBtn,
+    setShowUnfollowBtn,
+  } = useAuthContext();
   const {
     postsState: { posts },
   } = usePostsContext();
 
-  const userPosts = posts.filter(
-    ({ username }) => username === currentUser.username
+  const { id } = useParams();
+
+  const findUser = users?.find(({ _id }) => {
+    console.log(id, "_id", _id);
+    return _id === id;
+  });
+  const userPosts = posts?.filter(
+    ({ username }) => username === findUser?.username
   );
+  const showActionBtns =
+    findUser.username === currentUser.username ? true : false;
+
+  console.log("user param", findUser);
+  // const showUnfollowBtn = currentUser?.following.includes(findUser.username);
+  // console.log(showUnfollowBtn);
+  // useEffect(() => {
+  //   if (currentUser?.following.includes(findUser.username))
+  //     setShowUnfollowBtn(true);
+  //   else {
+  //     setShowUnfollowBtn(false);
+  //   }
+  // }, [showUnfollowBtn]);
 
   return (
     <div className="profile">
@@ -27,39 +56,51 @@ export default function Profile() {
         <div className="hero-header">
           <div className="user-info">
             <img
-              src={currentUser.image}
+              src={findUser?.image}
               alt="user-profile"
               className="profile-photo"
             />
             <div className="user">
-              <p>{`${currentUser?.firstName} ${" "} ${
-                currentUser?.lastName
-              }`}</p>
-              <p className="grey-color">@{currentUser?.username}</p>
+              <p>{`${findUser?.firstName} ${" "} ${findUser?.lastName}`}</p>
+              <p className="grey-color">@{findUser?.username}</p>
             </div>
           </div>
-          <div className="profile-hero-actions">
+          {showActionBtns && (
+            <div className="profile-hero-actions">
+              <button
+                className="edit"
+                onClick={() => setShowEditProfileModal(true)}
+              >
+                Edit Profile
+              </button>
+              <button className="logout" onClick={logoutHandler}>
+                Logout
+              </button>
+            </div>
+          )}
+          {!showActionBtns && (
             <button
-              className="edit"
-              onClick={() => setShowEditProfileModal(true)}
+              className="follow-unfollow-btn"
+              onClick={() =>
+                showUnfollowBtn
+                  ? unfollowUser(id, encodedToken)
+                  : followUser(id, encodedToken)
+              }
             >
-              Edit Profile
+              {showUnfollowBtn ? "Unfollow" : "Follow"}
             </button>
-            <button className="logout" onClick={logoutHandler}>
-              Logout
-            </button>
-          </div>
+          )}
         </div>
         <div className="hero-mid">
-          <p>{currentUser?.bio}</p>
+          <p>{findUser?.bio}</p>
 
-          <Link to={currentUser?.website}>{currentUser?.website}</Link>
+          <Link to={findUser?.website}>{findUser?.website}</Link>
         </div>
 
         <div className="hero-footer">
-          <p>{userPosts.length} posts</p>
-          <p>{currentUser?.followers.length} followers</p>
-          <p>{currentUser?.following.length} following</p>
+          <p>{userPosts?.length} posts</p>
+          <p>{findUser?.followers.length} followers</p>
+          <p>{findUser?.following.length} following</p>
         </div>
       </section>
       {userPosts.length ? (

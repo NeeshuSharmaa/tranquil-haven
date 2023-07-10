@@ -35,8 +35,8 @@ export default function Signup() {
   };
   return (
     <div className="auth-page">
+      <h1>Create Tranquil Haven's account</h1>
       <form className="auth-flex-container" onSubmit={signupHandleSubmit}>
-        <h1>Create Tranquil Haven's account</h1>
         <input type="email" name="email" placeholder="Email" required />
         <div>
           <input

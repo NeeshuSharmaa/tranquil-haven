@@ -1,8 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { users as usersData } from "../../backend/db/users";
 
 const AuthContext = createContext();
 
@@ -11,23 +10,18 @@ export const useAuthContext = () => useContext(AuthContext);
 export default function AuthContextProvider({ children }) {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
+  const usersData = JSON.parse(localStorage.getItem("users"));
 
   const [loggedIn, setLoggedIn] = useState(token);
 
   const navigate = useNavigate();
-  const [users, setUsers] = useState([...usersData]);
+  const [users, setUsers] = useState(usersData);
   const [currentUser, setCurrentUser] = useState(JSON.parse(user));
   const [encodedToken, setEncodedToken] = useState(token);
 
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
 
-  const loginHandler = async (
-    username,
-    password,
-    email,
-    firstName,
-    lastName
-  ) => {
+  const loginHandler = async (username, password) => {
     try {
       const {
         data: { encodedToken, foundUser },
@@ -41,6 +35,7 @@ export default function AuthContextProvider({ children }) {
       localStorage.setItem("user", JSON.stringify(foundUser));
 
       setLoggedIn(true);
+      getUsers();
 
       toast.success("Logged in successfully", { className: "toast-message" });
       navigate("/");
@@ -66,17 +61,14 @@ export default function AuthContextProvider({ children }) {
         firstName,
         lastName,
       });
-      const userCreated = {
-        ...createdUser,
-        image: "/assets/images/default-avatar.jpg",
-      };
-      setUsers((users) => [...users, createdUser]);
-      setCurrentUser(userCreated);
+
+      setCurrentUser(createdUser);
       setEncodedToken(encodedToken);
       localStorage.setItem("token", JSON.stringify(encodedToken));
-      localStorage.setItem("user", JSON.stringify(userCreated));
+      localStorage.setItem("user", JSON.stringify(createdUser));
 
       setLoggedIn(true);
+      getUsers();
 
       toast.success("Signed Up successfully", { className: "toast-message" });
       navigate("/");
@@ -90,32 +82,114 @@ export default function AuthContextProvider({ children }) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("posts");
+    localStorage.removeItem("users");
     setLoggedIn(false);
     setCurrentUser(null);
     setEncodedToken(null);
     toast.success("Logged Out successfully", { className: "toast-message" });
   };
 
+  const getUsers = async () => {
+    try {
+      const {
+        status,
+        data: { users },
+      } = await axios.get("/api/users");
+      if (status === 200) {
+        setUsers(users);
+
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const followUser = async (userId, authorization) => {
+    console.log("token", authorization);
+    try {
+      const {
+        data: { followUser, user },
+      } = await axios.post(
+        `/api/users/follow/${userId}`,
+        {},
+        {
+          headers: {
+            authorization,
+          },
+        }
+      );
+      setCurrentUser(user);
+      const usersAfterUpdateOne = users.map((user) =>
+        user.username === followUser.username ? followUser : user
+      );
+      const updatedUsers = usersAfterUpdateOne.map((USER) =>
+        USER.username === user.username ? user : USER
+      );
+
+      setUsers(updatedUsers);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      toast.success("User followed!", { className: "toast-message" });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const unfollowUser = async (userId, authorization) => {
+    try {
+      const {
+        data: { followUser, user },
+      } = await axios.post(
+        `/api/users/unfollow/${userId}`,
+        {},
+        {
+          headers: {
+            authorization,
+          },
+        }
+      );
+      console.log(followUser, user);
+      // setCurrentUser(user);
+      // const userAfterUpdateOne = users.map((user) =>
+      //   user.username === followUser.username ? followUser : user
+      // );
+      // const updatedUsers = userAfterUpdateOne.map((USER) =>
+      //   USER.username === user.username ? user : USER
+      // );
+
+      // setUsers(updatedUsers);
+      // localStorage.setItem("user", JSON.stringify(user));
+      // localStorage.setItem("users", JSON.stringify(updatedUsers));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const getUserDetails = (uName) => {
-    const findUser = users.find(({ username }) => username === uName);
+    const findUser = users?.find(({ username }) => username === uName);
 
     return {
-      name: `${findUser.firstName}  ${findUser.lastName}`,
-      userImg: findUser.image,
+      name: `${findUser?.firstName}  ${findUser?.lastName}`,
+      userImg: findUser?.image,
     };
   };
-  console.log("users", users);
+  const [showUnfollowBtn, setShowUnfollowBtn] = useState(false);
   const values = {
     users,
     setUsers,
+    showUnfollowBtn,
+    setShowUnfollowBtn,
     currentUser,
     setCurrentUser,
     encodedToken,
     loggedIn,
+    getUsers,
     setLoggedIn,
     loginHandler,
     signupHandler,
     logoutHandler,
+    followUser,
+    unfollowUser,
     getUserDetails,
     showEditProfileModal,
     setShowEditProfileModal,

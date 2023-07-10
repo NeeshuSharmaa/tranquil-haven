@@ -14,7 +14,7 @@ export default function Sidebar() {
     isActive ? "active sidebar-link-child" : "sidebar-link-child";
 
   const { currentUser, logoutHandler } = useAuthContext();
-
+  console.log("path", `/profile/${currentUser?._id}`);
   return (
     <aside className="nav-sidebar">
       <h2>tranquilHaven</h2>

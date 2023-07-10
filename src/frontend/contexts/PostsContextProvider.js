@@ -19,8 +19,10 @@ export default function PostsContextProvider({ children }) {
 
   const { currentUser } = useAuthContext();
 
+  const postsData = JSON.parse(localStorage.getItem("posts"));
+
   const initialState = {
-    posts: [],
+    posts: postsData || [],
     bookmarks: [],
     likedPosts: [],
     sortBy: { latest: false, trending: false },
@@ -35,12 +37,6 @@ export default function PostsContextProvider({ children }) {
     showEditPostModal,
     setShowEditPostModal,
   };
-  useEffect(() => {
-    if (currentUser) {
-      fetchPosts(dispatch, currentUser);
-      localStorage.setItem("posts", JSON.stringify(postsState.posts));
-    }
-  }, [postsState.posts]);
 
   return (
     <PostsContext.Provider value={values}>{children}</PostsContext.Provider>

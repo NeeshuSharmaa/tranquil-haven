@@ -21,6 +21,7 @@ import {
 
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Post({
   _id,
@@ -31,7 +32,7 @@ export default function Post({
   updatedAt,
   image,
 }) {
-  const { currentUser, getUserDetails, encodedToken } = useAuthContext();
+  const { users, currentUser, getUserDetails, encodedToken } = useAuthContext();
   const { postsState, dispatch, setShowEditPostModal, setEditPost } =
     usePostsContext();
 
@@ -50,22 +51,28 @@ export default function Post({
   const inLikedPosts = postsState.likedPosts.find(({ _id: id }) => id === _id);
   const inBookmarks = postsState.bookmarks.find(({ _id: id }) => id === _id);
   const isUserPost = currentUser.username === username;
-  const isInFollowing = currentUser.following.includes(username);
+
+  console.log("liked?", inLikedPosts);
+  const user = users?.find(({ username: USERNAME }) => USERNAME === username);
 
   return (
     <div className="post-outer-container">
       <div className="post-head">
-        <div className="post-head-left">
-          <img src={userImg} alt="user" className="user-img" />
-          <div className="post-user-info">
-            <div>
-              <span>{name}</span>
-              <span className="grey-color">@{username}</span>
-            </div>
+        <Link to={`/profile/${user?._id}`}>
+          <div className="post-head-left">
+            {/* <Link to="/bookmarks"> */}
+            <img src={userImg} alt="user" className="user-img" />
+            {/* </Link> */}
+            <div className="post-user-info">
+              <div>
+                <span>{name}</span>
+                <span className="grey-color">@{username}</span>
+              </div>
 
-            <span className="grey-color">{getDateAndTime(createdAt)}</span>
+              <span className="grey-color">{getDateAndTime(createdAt)}</span>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {isUserPost && (
           <>
@@ -107,11 +114,6 @@ export default function Post({
               </div>
             )}
           </>
-        )}
-        {!isUserPost && (
-          <button className={isInFollowing ? "unfollow" : "follow"}>
-            {isInFollowing ? "Unfollow" : "Follow"}
-          </button>
         )}
       </div>
       <div className="post-content">

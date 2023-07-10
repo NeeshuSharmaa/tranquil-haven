@@ -35,6 +35,7 @@ export const createPost = async (
     );
 
     dispatch({ type: "CREATE_NEW_POST", payload: posts });
+    localStorage.setItem("posts", JSON.stringify(posts));
     toast.success("Post got added!", {
       className: "toast-message",
     });
@@ -57,6 +58,7 @@ export const deletePost = async (id, dispatch, authorization, toast) => {
     );
 
     dispatch({ type: "DELETE_POST", payload: posts });
+    localStorage.setItem("posts", JSON.stringify(posts));
     toast.success("Post got deleted!", {
       className: "toast-message",
     });
@@ -88,6 +90,7 @@ export const editPostHandler = async (
     );
 
     dispatch({ type: "EDIT_POST", payload: posts });
+    localStorage.setItem("posts", JSON.stringify(posts));
     setShowEditPostModal(false);
     toast.success("Post got edited!", {
       className: "toast-message",
@@ -113,7 +116,7 @@ export const likePost = async (id, dispatch, authorization, toast) => {
     );
 
     dispatch({ type: "LIKE_POST", payload: { posts, id } });
-
+    localStorage.setItem("posts", JSON.stringify(posts));
     toast.success("Post liked!", {
       className: "toast-message",
     });
@@ -138,6 +141,7 @@ export const dislikePost = async (id, dispatch, authorization, toast) => {
     );
 
     dispatch({ type: "DISLIKE_POST", payload: { posts, id } });
+    localStorage.setItem("posts", JSON.stringify(posts));
 
     toast.success("Post disliked", {
       className: "toast-message",

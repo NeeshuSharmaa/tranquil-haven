@@ -37,6 +37,7 @@ export const signupHandler = function (schema, request) {
       username,
       password,
       ...rest,
+      image: "/assets/images/default-avatar.jpg",
       followers: [],
       following: [],
       bookmarks: [],

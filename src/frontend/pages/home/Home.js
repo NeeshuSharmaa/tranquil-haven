@@ -8,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { createPost } from "../../services/PostServices";
+import { createPost, fetchPosts } from "../../services/PostServices";
 
 export default function Home() {
   const { currentUser, encodedToken } = useAuthContext();
@@ -43,9 +43,18 @@ export default function Home() {
     postsToDisplay = posts;
   }
 
+  useEffect(() => {
+    console.log("it ran 1");
+    if (currentUser) {
+      console.log("home ran");
+      fetchPosts(dispatch, currentUser);
+      localStorage.setItem("posts", JSON.stringify(posts));
+    }
+  }, []);
+
   return (
     <div className="home">
-      <h2>Home</h2>
+      <h2 className="head">Home</h2>
       <div className="tweet-container">
         <img
           src={currentUser.image}

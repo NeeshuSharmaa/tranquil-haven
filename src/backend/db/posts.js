@@ -52,10 +52,10 @@ export const posts = [
     content: "Truly Madly Deeply",
     likes: {
       likeCount: 56,
-      likedBy: ["neeyasharmaa"],
+      likedBy: [],
       dislikedBy: [],
     },
-    username: "neeyasharmaa",
+    username: "jamieanderson",
 
     createdAt: randomDate(),
     updatedAt: randomDate(),
@@ -113,7 +113,7 @@ export const posts = [
       likedBy: ["jamesanderson", "kathwilson"],
       dislikedBy: [],
     },
-    username: "kathwilson",
+    username: "jamieanderson",
 
     createdAt: randomDate(),
     updatedAt: randomDate(),
@@ -129,7 +129,7 @@ export const posts = [
       likedBy: ["noahdavis", "neeyasharmaa", "kathwilson", "jamesanderson"],
       dislikedBy: [],
     },
-    username: "kathwilson",
+    username: "noahdavis",
 
     createdAt: randomDate(),
     updatedAt: randomDate(),
