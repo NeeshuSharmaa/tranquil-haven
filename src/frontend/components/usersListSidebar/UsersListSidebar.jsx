@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./UserslistSidebar.css";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
+import { Link } from "react-router-dom";
 
 export default function UsersListSidebar() {
   const { currentUser, users, followUser, encodedToken } = useAuthContext();
@@ -20,13 +21,15 @@ export default function UsersListSidebar() {
         {suggestedFollowers?.map((user) => (
           <div key={user._id}>
             <div className="head-left">
-              <img src={user.image} alt={user.username} />
-              <div>
-                <span>
-                  {user.firstName} {user.lastName}
-                </span>
-                <span className="grey-color">@{user.username}</span>
-              </div>
+              <Link to={`/profile/${user._id}`}>
+                <img src={user.image} alt={user.username} />
+                <div>
+                  <span>
+                    {user.firstName} {user.lastName}
+                  </span>
+                  <span className="grey-color">@{user.username}</span>
+                </div>
+              </Link>
             </div>
             <button
               className="follow-btn"
