@@ -25,7 +25,7 @@ export default function PostsContextProvider({ children }) {
     posts: postsData || [],
     bookmarks: [],
     likedPosts: [],
-    sortBy: { latest: false, trending: false },
+    sortBy: { latest: false, trending: false, oldest: false },
   };
   const [postsState, dispatch] = useReducer(postsReducer, initialState);
 

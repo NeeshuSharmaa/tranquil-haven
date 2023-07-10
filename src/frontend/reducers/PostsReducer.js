@@ -15,10 +15,22 @@ export const postsReducer = (state, { type, payload }) => {
       return { ...state, posts: payload.posts };
     }
     case "SORT_BY_TRENDING": {
-      return { ...state, sortBy: { latest: false, trending: true } };
+      return {
+        ...state,
+        sortBy: { latest: false, trending: true, oldest: false },
+      };
     }
     case "SORT_BY_LATEST": {
-      return { ...state, sortBy: { latest: true, trending: false } };
+      return {
+        ...state,
+        sortBy: { latest: true, trending: false, oldest: false },
+      };
+    }
+    case "SORT_BY_OLDEST": {
+      return {
+        ...state,
+        sortBy: { latest: false, trending: false, oldest: true },
+      };
     }
     case "CREATE_NEW_POST": {
       return { ...state, posts: payload };

@@ -2,6 +2,8 @@ import "./Home.css";
 import Post from "../../components/post/Post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faArrowUpShortWide,
+  faArrowUpWideShort,
   faFire,
   faPaperPlane,
   faSort,
@@ -17,7 +19,7 @@ export default function Home() {
   const {
     postsState: {
       posts,
-      sortBy: { latest, trending },
+      sortBy: { latest, trending, oldest },
     },
     dispatch,
   } = usePostsContext();
@@ -38,6 +40,14 @@ export default function Home() {
     const sortedPosts = [...posts].sort(
       (postA, postB) => postB.likes.likeCount - postA.likes.likeCount
     );
+    postsToDisplay = sortedPosts;
+  } else if (oldest) {
+    const sortedPosts = [...posts].sort(
+      (postA, postB) =>
+        new Date(postA.createdAt.unformatted) -
+        new Date(postB.createdAt.unformatted)
+    );
+
     postsToDisplay = sortedPosts;
   } else {
     postsToDisplay = posts;
@@ -86,8 +96,15 @@ export default function Home() {
           className={latest ? "active-filter" : ""}
           onClick={() => dispatch({ type: "SORT_BY_LATEST" })}
         >
-          <FontAwesomeIcon icon={faSort} className="filter-icon" />
+          <FontAwesomeIcon icon={faArrowUpWideShort} className="filter-icon" />
           <span>Latest</span>
+        </div>
+        <div
+          className={oldest ? "active-filter" : ""}
+          onClick={() => dispatch({ type: "SORT_BY_OLDEST" })}
+        >
+          <FontAwesomeIcon icon={faArrowUpShortWide} className="filter-icon" />
+          <span> Oldest</span>
         </div>
       </div>
 
