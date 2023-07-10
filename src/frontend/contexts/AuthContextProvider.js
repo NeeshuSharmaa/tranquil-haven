@@ -83,9 +83,7 @@ export default function AuthContextProvider({ children }) {
     localStorage.removeItem("user");
     localStorage.removeItem("posts");
     localStorage.removeItem("users");
-    setLoggedIn(false);
-    setCurrentUser(null);
-    setEncodedToken(null);
+    navigate(0);
     toast.success("Logged Out successfully", { className: "toast-message" });
   };
 
@@ -106,7 +104,6 @@ export default function AuthContextProvider({ children }) {
   };
 
   const followUser = async (userId, authorization) => {
-    console.log("token", authorization);
     try {
       const {
         data: { followUser, user },
@@ -148,18 +145,19 @@ export default function AuthContextProvider({ children }) {
           },
         }
       );
-      console.log(followUser, user);
-      // setCurrentUser(user);
-      // const userAfterUpdateOne = users.map((user) =>
-      //   user.username === followUser.username ? followUser : user
-      // );
-      // const updatedUsers = userAfterUpdateOne.map((USER) =>
-      //   USER.username === user.username ? user : USER
-      // );
 
-      // setUsers(updatedUsers);
-      // localStorage.setItem("user", JSON.stringify(user));
-      // localStorage.setItem("users", JSON.stringify(updatedUsers));
+      setCurrentUser(user);
+      const usersAfterUpdateOne = users.map((user) =>
+        user.username === followUser.username ? followUser : user
+      );
+      const updatedUsers = usersAfterUpdateOne.map((USER) =>
+        USER.username === user.username ? user : USER
+      );
+      console.log(updatedUsers);
+
+      setUsers(updatedUsers);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
     } catch (e) {
       console.log(e);
     }

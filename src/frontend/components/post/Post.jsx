@@ -52,7 +52,6 @@ export default function Post({
   const inBookmarks = postsState.bookmarks.find(({ _id: id }) => id === _id);
   const isUserPost = currentUser.username === username;
 
-  console.log("liked?", inLikedPosts);
   const user = users?.find(({ username: USERNAME }) => USERNAME === username);
 
   return (

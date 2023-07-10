@@ -44,9 +44,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log("it ran 1");
     if (currentUser) {
-      console.log("home ran");
       fetchPosts(dispatch, currentUser);
       localStorage.setItem("posts", JSON.stringify(posts));
     }
