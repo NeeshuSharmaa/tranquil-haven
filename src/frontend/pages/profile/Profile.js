@@ -6,6 +6,7 @@ import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
+import EditProfileModal from "../../components/editprofileModal/EditProfileModal";
 
 export default function Profile() {
   const {
@@ -16,9 +17,10 @@ export default function Profile() {
     logoutHandler,
     followUser,
     unfollowUser,
-    showUnfollowBtn,
-    setShowUnfollowBtn,
+
+    showEditProfileModal,
   } = useAuthContext();
+
   const {
     postsState: { posts },
   } = usePostsContext();
@@ -107,6 +109,7 @@ export default function Profile() {
           You haven't posted anything yet
         </div>
       )}
+      {showEditProfileModal && <EditProfileModal />}
     </div>
   );
 }

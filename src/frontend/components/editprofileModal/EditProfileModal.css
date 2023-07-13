@@ -8,6 +8,7 @@
     background-color:var(--modal-bg) ;
     align-items: center;
     justify-content: center;
+    z-index:5;
 
 }
 .modal-main>.modal-body>.profile-image-outer{

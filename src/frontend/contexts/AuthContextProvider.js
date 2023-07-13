@@ -83,7 +83,9 @@ export default function AuthContextProvider({ children }) {
     localStorage.removeItem("user");
     localStorage.removeItem("posts");
     localStorage.removeItem("users");
+    navigate("/login");
     navigate(0);
+
     toast.success("Logged Out successfully", { className: "toast-message" });
   };
 

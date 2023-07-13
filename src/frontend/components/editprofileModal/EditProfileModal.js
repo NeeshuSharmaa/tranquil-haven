@@ -13,13 +13,8 @@ import { usePostsContext } from "../../contexts/PostsContextProvider";
 import AvatarModal from "../avatarModal/AvatarModal";
 
 export default function EditProfileModal() {
-  const {
-    showEditProfileModal,
-    setShowEditProfileModal,
-    currentUser,
-    setCurrentUser,
-    setUsers,
-  } = useAuthContext();
+  const { setShowEditProfileModal, currentUser, setCurrentUser, setUsers } =
+    useAuthContext();
   const {
     postsState: { posts },
     dispatch,
@@ -74,9 +69,6 @@ export default function EditProfileModal() {
     });
   };
 
-  if (!showEditProfileModal) {
-    return null;
-  }
   return (
     <div className="edit-profile-modal">
       <div className="modal-main">

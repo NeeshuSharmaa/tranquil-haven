@@ -16,9 +16,11 @@ import PostModal from "./frontend/components/postModal/PostModal";
 import EditProfileModal from "./frontend/components/editprofileModal/EditProfileModal";
 import UsersListSidebar from "./frontend/components/usersListSidebar/UsersListSidebar";
 import CreatePost from "./frontend/components/createPost/CreatePost";
+import { useAuthContext } from "./frontend/contexts/AuthContextProvider";
 
 function App() {
   const { pathname } = useLocation();
+
   const showSidebars =
     pathname !== "/login" && pathname !== "/signup" && pathname !== "/notfound";
   const appStyle =
@@ -89,7 +91,7 @@ function App() {
         theme="colored"
       />
       <PostModal />
-      <EditProfileModal />
+
       <CreatePost />
     </div>
   );
