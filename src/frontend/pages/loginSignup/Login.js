@@ -21,11 +21,14 @@ export default function Login() {
   };
   return (
     <div className="auth-page">
-      <div className="auth-image-container">
-        <img src="/assets/images/friends-2.jpg" alt="connect" />
+      <div className="auth-hero-container">
+        <h1 className="logo">Welcome to Tranquil Haven</h1>
+
+        <h1>Where serenity meets connection</h1>
+        <img src="/assets/images/hero-img.png" alt="tranquil-haven" />
       </div>
       <div className="auth-form-container">
-        <h1>Welcome to Tranquil Haven</h1>
+        <h2>Log In</h2>
         <form className="auth-flex-container" onSubmit={loginHandleSubmit}>
           <input type="username" name="username" placeholder="Username" />
           <input type="password" name="password" placeholder="Password" />

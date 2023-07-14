@@ -35,89 +35,100 @@ export default function Signup() {
   };
   return (
     <div className="auth-page">
-      <h1>Create Tranquil Haven's account</h1>
-      <form className="auth-flex-container" onSubmit={signupHandleSubmit}>
-        <input type="email" name="email" placeholder="Email" required />
-        <div>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            required
-          />
-          <input type="text" name="lastName" placeholder="Last Name" required />
-        </div>
+      <div className="auth-hero-container">
+        <h1 className="logo">Welcome to Tranquil Haven</h1>
+        <h1>Discover peace in the digital realm</h1>
+      </div>
+      <div className="auth-form-container">
+        <h2>Regsiter Now!</h2>
+        <form className="auth-flex-container" onSubmit={signupHandleSubmit}>
+          <input type="email" name="email" placeholder="Email" required />
+          <div>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              required
+            />
+          </div>
 
-        <input type="text" name="username" placeholder="Username" required />
-        <div>
-          <input
-            type={hidePass.password ? "password" : "text"}
-            name="password"
-            placeholder="Password"
-            required
-          />
-          {hidePass.password ? (
-            <FontAwesomeIcon
-              style={{ cursor: "pointer", color: "grey" }}
-              icon={faEyeSlash}
-              onClick={() =>
-                setHidePass((prev) => ({
-                  ...prev,
-                  password: !prev.password,
-                }))
-              }
+          <input type="text" name="username" placeholder="Username" required />
+          <div>
+            <input
+              type={hidePass.password ? "password" : "text"}
+              name="password"
+              placeholder="Password"
+              required
             />
-          ) : (
-            <FontAwesomeIcon
-              style={{ cursor: "pointer", color: "grey" }}
-              icon={faEye}
-              onClick={() =>
-                setHidePass((prev) => ({
-                  ...prev,
-                  password: !prev.password,
-                }))
-              }
+            {hidePass.password ? (
+              <FontAwesomeIcon
+                style={{ cursor: "pointer", color: "grey" }}
+                icon={faEyeSlash}
+                onClick={() =>
+                  setHidePass((prev) => ({
+                    ...prev,
+                    password: !prev.password,
+                  }))
+                }
+              />
+            ) : (
+              <FontAwesomeIcon
+                style={{ cursor: "pointer", color: "grey" }}
+                icon={faEye}
+                onClick={() =>
+                  setHidePass((prev) => ({
+                    ...prev,
+                    password: !prev.password,
+                  }))
+                }
+              />
+            )}
+          </div>
+          <div>
+            <input
+              type={hidePass.confirmPass ? "password" : "text"}
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              required
             />
-          )}
-        </div>
-        <div>
-          <input
-            type={hidePass.confirmPass ? "password" : "text"}
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            required
-          />
-          {hidePass.confirmPass ? (
-            <FontAwesomeIcon
-              style={{ cursor: "pointer", color: "grey" }}
-              icon={faEyeSlash}
-              onClick={() =>
-                setHidePass((prev) => ({
-                  ...prev,
-                  confirmPass: !prev.confirmPass,
-                }))
-              }
-            />
-          ) : (
-            <FontAwesomeIcon
-              style={{ cursor: "pointer", color: "grey" }}
-              icon={faEye}
-              onClick={() =>
-                setHidePass((prev) => ({
-                  ...prev,
-                  confirmPass: !prev.confirmPass,
-                }))
-              }
-            />
-          )}
-        </div>
+            {hidePass.confirmPass ? (
+              <FontAwesomeIcon
+                style={{ cursor: "pointer", color: "grey" }}
+                icon={faEyeSlash}
+                onClick={() =>
+                  setHidePass((prev) => ({
+                    ...prev,
+                    confirmPass: !prev.confirmPass,
+                  }))
+                }
+              />
+            ) : (
+              <FontAwesomeIcon
+                style={{ cursor: "pointer", color: "grey" }}
+                icon={faEye}
+                onClick={() =>
+                  setHidePass((prev) => ({
+                    ...prev,
+                    confirmPass: !prev.confirmPass,
+                  }))
+                }
+              />
+            )}
+          </div>
 
-        <button>Sign up</button>
-        <p>
-          <span>Already have an account?</span>
-          <Link to="/login">Login</Link>
-        </p>
-      </form>
+          <button>Sign up</button>
+          <p>
+            <span>Already have an account?</span>
+            <Link to="/login">Login</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }

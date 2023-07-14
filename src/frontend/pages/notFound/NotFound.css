@@ -1,0 +1,23 @@
+.not-found-page{
+ 
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.not-found-page>img{
+    width:50vw;
+}
+.not-found-page>a>button{
+    padding:0.8rem 1.25rem;
+    background-color: cornflowerblue;
+    color:white;
+    font-size:1rem;
+    border:0;
+    border-radius:0.5rem;
+    display:flex;
+    gap:1rem;
+    align-items: center;
+}

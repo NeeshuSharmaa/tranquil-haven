@@ -84,7 +84,7 @@ export const users = [
     password: "sarah123",
     image: "/assets/images/gabby.jpg",
     bio: "I know people usually better than they know themselves.",
-    website: "https://example.com/donnapaulson",
+    website: "https://example.com/sarahgibson",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
