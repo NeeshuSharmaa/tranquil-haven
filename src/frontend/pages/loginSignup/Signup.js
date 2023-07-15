@@ -37,7 +37,8 @@ export default function Signup() {
     <div className="auth-page">
       <div className="auth-hero-container">
         <h1 className="logo">Welcome to Tranquil Haven</h1>
-        <h1>Discover peace in the digital realm</h1>
+
+        <h1>Where serenity meets connection</h1>
       </div>
       <div className="auth-form-container">
         <h2>Regsiter Now!</h2>
