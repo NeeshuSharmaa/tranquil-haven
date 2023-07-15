@@ -1,4 +1,5 @@
 import { formatDate } from "../utils/authUtils";
+import { v4 as uuid } from "uuid";
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -57,6 +58,47 @@ export const users = [
       "https://images.unsplash.com/photo-1531218614045-e596f12f0393?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fGhhcHB5JTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
     bio: "Capturing moments and telling stories through the lens 📷",
     website: "https://example.com/jamieanderson",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "f5c67534-2f9c-4bf6-ae5e-679f1b66a1ca",
+    firstName: "Anne",
+    lastName: "Graffity",
+    username: "annegraffity",
+    email: "annegraffity@gmail.com",
+    password: "anne123",
+    image:
+      "https://img.freepik.com/free-photo/woman-relaxing-hammock-while-beach-with-book_23-2148700244.jpg?w=1060&t=st=1689248570~exp=1689249170~hmac=44d0231c52b530a53049f2b67c4d89f20a46f81bf7698a381a834da534b150e8",
+    bio: "All colors in one with full brightness",
+    website: "https://example.com/annegraffity",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "40fb31bb-5861-4e95-b47e-db7656a21604",
+    firstName: "Sarah",
+    lastName: "Gibson",
+    username: "sarahgibson",
+    email: "sarahgibson@yahoo.com",
+    password: "sarah123",
+    image: "/assets/images/gabby.jpg",
+    bio: "I know people usually better than they know themselves.",
+    website: "https://example.com/sarahgibson",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "029aa6c1-b37f-45a6-b4d1-ef6a3d3c7d1e",
+    firstName: "Daniel",
+    lastName: "Parker",
+    username: "danielparker",
+    email: "danielparker@yahoo.com",
+    password: "daniel123",
+    image:
+      "https://img.freepik.com/free-photo/male-florist-making-beautiful-bouquet_23-2149127292.jpg?size=626&ext=jpg&uid=R107571445&ga=GA1.2.115290866.1687443538&semt=sph",
+    bio: "Capturing moments and telling stories through the lens 📷",
+    website: "https://example.com/danielparker",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

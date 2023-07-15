@@ -15,6 +15,21 @@ const randomDate = () => {
 export const posts = [
   {
     _id: uuid(),
+
+    content:
+      "I like freedom. I wake up in the morning and say, ‘I don’t know, should I have a popsicle or a donut?’ You know, who knows?",
+    likes: {
+      likeCount: 50,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "annegraffity",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
     image: "/assets/images/dog.jpeg",
     content:
       "In the depths of those soulful eyes, caught a glimpse of something profound—an unspoken emotion that tugged at my heartstrings. It's the unmistakable loneliness that's lingering in the gaze, reminding us of their capacity to feel and their yearning for connection.",
@@ -56,6 +71,21 @@ export const posts = [
       dislikedBy: [],
     },
     username: "jamieanderson",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
+    image: "/assets/images/read.jpg",
+    content:
+      "Happy Sunday ✨ I just finished Finlay Donovan is Killing It not even an hour ago... and I loved it SO MUCH. It’s probably a 5/5 for me. This is a fun murder/mystery/comedy.",
+    likes: {
+      likeCount: 23,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "sarahgibson",
 
     createdAt: randomDate(),
     updatedAt: randomDate(),
@@ -118,6 +148,33 @@ export const posts = [
     createdAt: randomDate(),
     updatedAt: randomDate(),
   },
+  {
+    _id: uuid(),
+    image: "/assets/images/butterfly.jpg",
+    content: `Blessed be the mind that dreamed the day
+The blueprint of your life
+Would begin to glow on earth,
+Illuminating all the faces and voices
+That would arrive to invite
+Your soul to growth…..
+
+Blessed be the gifts you never notice,
+Your health, eyes to behold the world,
+Thoughts to countenance the unknown,
+Memory to harvest vanished days,
+Your heart to feel the world's waves,
+Your breath to breathe the nourishment
+Of distance made intimate by earth….`,
+    likes: {
+      likeCount: 75,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "sarahgibson",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
 
   {
     _id: uuid(),
@@ -130,6 +187,85 @@ export const posts = [
       dislikedBy: [],
     },
     username: "noahdavis",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
+
+    content:
+      "My mother always used to say: The older you get, the better you get, unless you’re a banana XD",
+    likes: {
+      likeCount: 50,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "danielparker",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
+    image: "/assets/images/halloween.jpg",
+
+    content: "Happy Halloween. We tried, hahaa 👻",
+    likes: {
+      likeCount: 50,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "sarahgibson",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+
+  {
+    _id: uuid(),
+    image:
+      "https://img.freepik.com/free-photo/male-florist-making-beautiful-bouquet_23-2149127309.jpg?w=740&t=st=1689313546~exp=1689314146~hmac=8e47fc2b1ab7077e93f631f7a1c16fc7049d03031db9e167842101481c57c724",
+
+    content:
+      "Amidst vibrant petals, solace blooms, embracing my weary soul. Fragrant blossoms whisper tranquility, soothing every breath I take. In nature's embrace, I find solace, a haven of peace among delicate flowers. 🤍",
+    likes: {
+      likeCount: 65,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "danielparker",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
+    image: "/assets/images/yellow_stone.jpg",
+
+    content:
+      "So THAT’S why they call it #Yellowstone. Worth the 19 hours in the car. #breathtaking",
+    likes: {
+      likeCount: 68,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "annegraffity",
+
+    createdAt: randomDate(),
+    updatedAt: randomDate(),
+  },
+  {
+    _id: uuid(),
+    image: "/assets/images/aNd.jpg",
+    content:
+      "Trying to fight the urge to reread Aristotle and Dante Discover the Secrets of the Universe for the fourth time this summer 🌞 This is one of my favorite books of all time, and my mom was so kind enough to gift me this gorgeous 10th anniversary edition and I am obsessed, it is so beautiful.",
+    likes: {
+      likeCount: 72,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "sarahgibson",
 
     createdAt: randomDate(),
     updatedAt: randomDate(),

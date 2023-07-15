@@ -25,6 +25,14 @@ export default function Home() {
     dispatch,
   } = usePostsContext();
 
+  const postsForHome = posts?.filter(
+    ({ username }) =>
+      username === currentUser?.username ||
+      currentUser.following.some(
+        ({ username: USERNAME }) => username === USERNAME
+      )
+  );
+
   let postsToDisplay;
 
   if (latest) {
@@ -36,12 +44,12 @@ export default function Home() {
 
     postsToDisplay = sortedPosts;
   } else if (trending) {
-    const sortedPosts = [...posts].sort(
+    const sortedPosts = [...postsForHome].sort(
       (postA, postB) => postB.likes.likeCount - postA.likes.likeCount
     );
     postsToDisplay = sortedPosts;
   } else if (oldest) {
-    const sortedPosts = [...posts].sort(
+    const sortedPosts = [...postsForHome].sort(
       (postA, postB) =>
         new Date(postA.createdAt.unformatted) -
         new Date(postB.createdAt.unformatted)
@@ -49,7 +57,7 @@ export default function Home() {
 
     postsToDisplay = sortedPosts;
   } else {
-    postsToDisplay = posts;
+    postsToDisplay = postsForHome;
   }
 
   useEffect(() => {

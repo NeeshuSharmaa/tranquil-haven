@@ -173,6 +173,7 @@ export default function AuthContextProvider({ children }) {
       userImg: findUser?.image,
     };
   };
+  console.log(users);
   const [showUnfollowBtn, setShowUnfollowBtn] = useState(false);
   const values = {
     users,
