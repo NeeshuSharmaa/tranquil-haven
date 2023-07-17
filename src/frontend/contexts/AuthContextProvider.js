@@ -155,7 +155,6 @@ export default function AuthContextProvider({ children }) {
       const updatedUsers = usersAfterUpdateOne.map((USER) =>
         USER.username === user.username ? user : USER
       );
-      console.log(updatedUsers);
 
       setUsers(updatedUsers);
       localStorage.setItem("user", JSON.stringify(user));
@@ -173,7 +172,7 @@ export default function AuthContextProvider({ children }) {
       userImg: findUser?.image,
     };
   };
-  console.log(users);
+
   const [showUnfollowBtn, setShowUnfollowBtn] = useState(false);
   const values = {
     users,
