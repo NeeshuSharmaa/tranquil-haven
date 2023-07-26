@@ -1,113 +1,145 @@
 .profile {
-    min-height:100vh;
-    background-color: var(--gray-bg-color);
-    padding: 2rem;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  min-height: 100vh;
+  background-color: var(--gray-bg-color);
+  padding: 2rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .profile-hero-section {
-    align-self: center;
-    width: calc(500px + 4rem);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
+  align-self: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
-.hero-header{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.hero-header>.user-info {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  
-
-
+.hero-header > .user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
-.user-info>.profile-photo{
-    height:100px;
-    width:100px;
-    border-radius:50%;
-    border:4px solid white;
-    
-  
-
+.user-info > .profile-photo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 
-.hero-header>.user-info>.user{
-    display:flex;
-    flex-direction:column;
-    gap:0.2rem;
+.hero-header > .user-info > .user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
-.hero-header>.user-info>.user>.grey-color{
-    font-size:0.8rem;
-}
-
-.profile-hero-actions{
-    display:flex;
-    gap:1rem;
-    align-items:center;
-}
-.profile-hero-actions>button{
-    border: 0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.4rem;
-    cursor:pointer
-
-}
-.profile-hero-actions>.edit{
-    background-color: cornflowerblue;
-    color:white;  
-}
-.profile-hero-actions>.logout{
-    background-color: var(--bluish-white);
-
-}
-.hero-header>.follow-btn{
-    border: 0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    background-color: cornflowerblue;
-    color: white;
-    height: max-content;
-
-}
-.hero-header>.unfollow-btn{
-    border: 0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    border:2px solid cornflowerblue;
-    color: cornflowerblue;
-    background-color: white;
-    height: max-content;
-
+.hero-header > .user-info > .user > .grey-color {
+  font-size: 0.8rem;
 }
 
-.hero-mid{
-    display:flex;
-    flex-direction: column;
-    gap:0.2rem;
-    
+.profile-hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
-.hero-mid>a{
-    color:cornflowerblue;
+.profile-hero-actions > button {
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
 }
-.hero-footer{
-    display:flex;
-    gap:1.25rem;
-    
-    color:var(--dark-primary);
-    
+.profile-hero-actions > .edit {
+  background-color: cornflowerblue;
+  color: white;
 }
-.profile>.empty-posts-container{
-    align-self:center;
-    padding-top:4rem;
+.profile-hero-actions > .logout {
+  background-color: var(--bluish-white);
+}
+.hero-header > .follow-btn {
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  background-color: cornflowerblue;
+  color: white;
+  height: max-content;
+}
+.hero-header > .unfollow-btn {
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 2px solid cornflowerblue;
+  color: cornflowerblue;
+  background-color: white;
+  height: max-content;
+}
+
+.hero-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.hero-mid > a {
+  color: cornflowerblue;
+}
+.hero-footer {
+  display: flex;
+  gap: 1.25rem;
+
+  color: var(--dark-primary);
+}
+.profile > .empty-posts-container {
+  align-self: center;
+  padding-top: 4rem;
+}
+.action-icons {
+  padding: 0.5rem 1rem;
+  background-color: var(--bluish-white);
+  border-radius: 0.5rem;
+}
+@media screen and (min-width: 1025px) {
+  .action-icons {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .profile-hero-actions > .edit,
+  .logout {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .action-icons > .fa-icons {
+    width: 15px;
+    height: 15px;
+  }
+  .user-info > .profile-photo {
+    height: 60px;
+    width: 60px;
+  }
+}
+@media screen and (max-width: 452px) {
+  .action-icons {
+    padding: 0;
+    background-color: transparent;
+  }
+  .action-icons > .fa-icons {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .profile-hero-section {
+    padding: 1rem;
+  }
+  .user-info > .profile-photo {
+    height: 50px;
+    width: 50px;
+  }
 }

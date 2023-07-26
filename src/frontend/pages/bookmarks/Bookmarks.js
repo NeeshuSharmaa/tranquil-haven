@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Post from "../../components/post/Post";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Bookmarks.css";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+
+import { Link } from "react-router-dom";
 
 export default function Bookmarks() {
   const {
@@ -15,10 +15,9 @@ export default function Bookmarks() {
 
   return (
     <div className="bookmarks">
-      <div className="head">
-        <FontAwesomeIcon icon={faArrowLeftLong} />
-        <h2>Bookmarks</h2>
-      </div>
+      <Link to="/">
+        <h2 className="logo">tranquilHaven</h2>
+      </Link>
       {bookmarkPosts.length ? (
         <div className="posts-outer-container">
           {bookmarkPosts?.map((post) => (
@@ -27,7 +26,7 @@ export default function Bookmarks() {
         </div>
       ) : (
         <div className="empty-posts-container">
-          You have not bookmarked anything yet
+          <span>You have not bookmarked anything yet</span>
         </div>
       )}
     </div>

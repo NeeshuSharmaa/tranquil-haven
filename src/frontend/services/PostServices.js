@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchPosts = async (dispatch, currentUser) => {
+export const fetchPosts = async (dispatch, currentUser, setLoading) => {
   try {
     const {
       status,

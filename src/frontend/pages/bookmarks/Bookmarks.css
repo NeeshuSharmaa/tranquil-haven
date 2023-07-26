@@ -1,13 +1,14 @@
 .bookmarks {
-    background-color: var(--gray-bg-color);
-    padding: 2rem;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-
-
+  background-color: var(--gray-bg-color);
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.bookmarks>.empty-posts-container{
-    padding-left:4rem;
+.bookmarks > .empty-posts-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

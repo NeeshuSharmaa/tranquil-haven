@@ -14,9 +14,11 @@ import { useEffect } from "react";
 
 import { fetchPosts } from "../../services/PostServices";
 import TweetModal from "../../components/tweetModal/TweetModal";
+import Loader from "../../components/loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const { currentUser } = useAuthContext();
+  const { currentUser, loading, setLoading } = useAuthContext();
   const {
     postsState: {
       posts,
@@ -62,14 +64,16 @@ export default function Home() {
 
   useEffect(() => {
     if (currentUser) {
-      fetchPosts(dispatch, currentUser);
+      fetchPosts(dispatch, currentUser, setLoading);
       localStorage.setItem("posts", JSON.stringify(posts));
     }
   }, []);
 
   return (
     <div className="home">
-      <h2 className="head">Home</h2>
+      <Link to="/">
+        <h2 className="logo">tranquilHaven</h2>
+      </Link>
       <TweetModal />
 
       <div className="filter">

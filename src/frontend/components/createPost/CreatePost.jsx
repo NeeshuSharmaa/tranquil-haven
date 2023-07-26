@@ -13,7 +13,9 @@ export default function CreatePost() {
         className="outside-click"
         onClick={() => setShowCreatePostModal(false)}
       ></div>
-      <TweetModal />
+      <div className="inner-container">
+        <TweetModal />
+      </div>
     </div>
   );
 }

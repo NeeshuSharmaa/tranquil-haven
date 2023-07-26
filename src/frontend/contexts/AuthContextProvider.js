@@ -18,6 +18,7 @@ export default function AuthContextProvider({ children }) {
   const [users, setUsers] = useState(usersData);
   const [currentUser, setCurrentUser] = useState(JSON.parse(user));
   const [encodedToken, setEncodedToken] = useState(token);
+  const [loading, setLoading] = useState(false);
 
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
 
@@ -155,7 +156,6 @@ export default function AuthContextProvider({ children }) {
       const updatedUsers = usersAfterUpdateOne.map((USER) =>
         USER.username === user.username ? user : USER
       );
-      console.log(updatedUsers);
 
       setUsers(updatedUsers);
       localStorage.setItem("user", JSON.stringify(user));
@@ -173,11 +173,13 @@ export default function AuthContextProvider({ children }) {
       userImg: findUser?.image,
     };
   };
-  console.log(users);
+
   const [showUnfollowBtn, setShowUnfollowBtn] = useState(false);
   const values = {
     users,
     setUsers,
+    loading,
+    setLoading,
     showUnfollowBtn,
     setShowUnfollowBtn,
     currentUser,

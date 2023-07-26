@@ -224,8 +224,7 @@ Of distance made intimate by earth….`,
 
   {
     _id: uuid(),
-    image:
-      "https://img.freepik.com/free-photo/male-florist-making-beautiful-bouquet_23-2149127309.jpg?w=740&t=st=1689313546~exp=1689314146~hmac=8e47fc2b1ab7077e93f631f7a1c16fc7049d03031db9e167842101481c57c724",
+    image: "/assets/images/florist.jpg",
 
     content:
       "Amidst vibrant petals, solace blooms, embracing my weary soul. Fragrant blossoms whisper tranquility, soothing every breath I take. In nature's embrace, I find solace, a haven of peace among delicate flowers. 🤍",
