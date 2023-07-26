@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import "./UserslistSidebar.css";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function UsersListSidebar() {
   const { currentUser, users, followUser, encodedToken } = useAuthContext();
@@ -37,6 +39,7 @@ export default function UsersListSidebar() {
             >
               Follow
             </button>
+            <FontAwesomeIcon icon={faUserPlus} className="follow-icon" />
           </div>
         ))}
       </div>

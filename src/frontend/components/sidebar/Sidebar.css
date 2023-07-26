@@ -12,10 +12,8 @@
   height: 100vh;
   /* z-index:5; */
 }
-.sidebar-links > h2 {
-  background: -webkit-linear-gradient(bottom, rgb(54, 89, 154), cornflowerblue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.sidebar-links > .logo {
+  display: block;
 }
 .sidebar-links {
   display: flex;
@@ -64,7 +62,7 @@
   cursor: pointer;
 }
 .sidebar-profile > a > .user-img {
-  width: 150px;
+  width: 100%;
   height: 150px;
   border-radius: 50%;
   cursor: pointer;
@@ -72,8 +70,61 @@
 .sidebar-profile > .fa-icons {
   color: var(--dark-primary);
 }
-@media screen and (max-width: 768px) {
+.icon-navbar {
+  display: none;
+}
+.plus-outer {
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plus-outer > .fa-icons {
+  color: white;
+}
+
+.icon-navbar > .active {
+  color: cornflowerblue;
+}
+@media screen and (max-width: 1024px) {
   .nav-sidebar {
+    display: none;
+  }
+  .icon-navbar {
+    border-right: 1px solid rgb(236, 236, 236);
+    position: sticky;
+
+    top: 0;
+
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    height: 100vh;
+  }
+  .plus-outer {
+    width: 30px;
+    height: 30px;
+  }
+  .plus-outer > .fa-icons {
+    width: 20px;
+    height: 20px;
+  }
+  .icon-navbar > a > .fa-icons {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .icon-navbar {
+    display: none;
+  }
+  .nav-sidebar {
+    display: flex;
     justify-content: space-between;
   }
   .sidebar-profile {
@@ -99,42 +150,35 @@
     padding-top: 1rem;
   }
 }
-.bottom-navbar {
-  display: none;
-}
-.plus-outer {
-  width: 25px;
-  height: 25px;
-  background-color: cornflowerblue;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.plus-outer > .fa-icons {
-  width: 15px;
-  height: 15px;
-  color: white;
-}
-.bottom-navbar > a > .fa-icons {
-  width: 25px;
-  height: 25px;
-  color: cornflowerblue;
-}
+
 @media screen and (max-width: 650px) {
   .nav-sidebar {
     display: none;
   }
-  .bottom-navbar {
+  .icon-navbar {
+    border: none;
     padding: 1rem 0;
-    border-top: 1px solid rgb(236, 236, 236);
     position: sticky;
-
     bottom: 0;
     right: 0;
     left: 0;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    background-color: white;
+    background-color: var(--bluish-white);
+    height: max-content;
+    z-index: 2;
+  }
+  .plus-outer {
+    width: 25px;
+    height: 25px;
+  }
+  .plus-outer > .fa-icons {
+    width: 15px;
+    height: 15px;
+  }
+  .icon-navbar > a > .fa-icons {
+    width: 25px;
+    height: 25px;
   }
 }

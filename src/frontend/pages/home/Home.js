@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import { fetchPosts } from "../../services/PostServices";
 import TweetModal from "../../components/tweetModal/TweetModal";
 import Loader from "../../components/loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { currentUser, loading, setLoading } = useAuthContext();
@@ -70,7 +71,9 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h2 className="head">Home</h2>
+      <Link to="/">
+        <h2 className="logo">tranquilHaven</h2>
+      </Link>
       <TweetModal />
 
       <div className="filter">

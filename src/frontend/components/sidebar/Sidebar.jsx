@@ -22,7 +22,7 @@ export function Sidebar() {
   return (
     <aside className="nav-sidebar">
       <div className="sidebar-links">
-        <h2>tranquilHaven</h2>
+        <h2 className="logo">tranquilHaven</h2>
         <NavLink className={activeStyle} to="/">
           <FontAwesomeIcon className="fa-icons" icon={faHouse} />
           <span>Home</span>
@@ -70,26 +70,28 @@ export function Sidebar() {
   );
 }
 
-export function BottomNavbar() {
+export function IconNavbar() {
   const { currentUser } = useAuthContext();
+  const { setShowCreatePostModal } = usePostsContext();
+  const activeStyle = ({ isActive }) => (isActive ? "active" : "");
   return (
-    <div className="bottom-navbar">
-      <Link to="/">
+    <div className="icon-navbar">
+      <NavLink className={activeStyle} to="/">
         <FontAwesomeIcon icon={faHouse} className="fa-icons" />
-      </Link>
-      <Link to="/explore">
+      </NavLink>
+      <NavLink className={activeStyle} to="/explore">
         <FontAwesomeIcon icon={faCompass} className="fa-icons" />
-      </Link>
-      <div className="plus-outer">
+      </NavLink>
+      <div className="plus-outer" onClick={() => setShowCreatePostModal(true)}>
         <FontAwesomeIcon icon={faPlus} className="fa-icons" />
       </div>
 
-      <Link to="/bookmarks">
+      <NavLink className={activeStyle} to="/bookmarks">
         <FontAwesomeIcon icon={faBookmark} className="fa-icons" />
-      </Link>
-      <Link to={`/profile/${currentUser?._id}`}>
+      </NavLink>
+      <NavLink className={activeStyle} to={`/profile/${currentUser?._id}`}>
         <FontAwesomeIcon icon={faUser} className="fa-icons" />
-      </Link>
+      </NavLink>
     </div>
   );
 }

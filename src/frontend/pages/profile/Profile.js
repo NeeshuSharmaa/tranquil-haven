@@ -4,7 +4,11 @@ import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeftLong,
+  faRightFromBracket,
+  faUserPen,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import EditProfileModal from "../../components/editprofileModal/EditProfileModal";
 
@@ -42,10 +46,9 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <div className="head">
-        <FontAwesomeIcon icon={faArrowLeftLong} />
-        <h2>Profile</h2>
-      </div>
+      <Link to="/">
+        <h2 className="logo">tranquilHaven</h2>
+      </Link>
       <section className="profile-hero-section">
         <div className="hero-header">
           <div className="user-info">
@@ -65,11 +68,20 @@ export default function Profile() {
                 className="edit"
                 onClick={() => setShowEditProfileModal(true)}
               >
-                Edit Profile
+                Edit
               </button>
               <button className="logout" onClick={logoutHandler}>
                 Logout
               </button>
+              <div className="action-icons">
+                <FontAwesomeIcon icon={faUserPen} className="fa-icons" />
+              </div>
+              <div className="action-icons">
+                <FontAwesomeIcon
+                  icon={faRightFromBracket}
+                  className="fa-icons"
+                />
+              </div>
             </div>
           )}
           {!showActionBtns && (
@@ -88,7 +100,9 @@ export default function Profile() {
         <div className="hero-mid">
           <p>{findUser?.bio}</p>
 
-          <Link to={findUser?.website}>{findUser?.website}</Link>
+          <Link to={findUser?.website}>
+            <p>{findUser?.website}</p>
+          </Link>
         </div>
 
         <div className="hero-footer">

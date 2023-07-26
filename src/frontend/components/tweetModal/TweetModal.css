@@ -1,6 +1,6 @@
 .tweet-container {
   position: relative;
-  width: calc(500px + 4rem);
+  width: 100%;
   background-color: white;
   padding: 2rem;
   display: flex;
@@ -36,8 +36,11 @@ textarea:focus {
   gap: 0.4rem;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
-  .tweet-container {
-    width: calc(350px + 4rem);
+@media screen and (max-width: 452px) {
+  .tweet-container > button > span {
+    display: none;
+  }
+  textarea {
+    padding: 1rem;
   }
 }

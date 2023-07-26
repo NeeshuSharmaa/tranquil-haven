@@ -59,9 +59,8 @@ export default function Post({
       <div className="post-head">
         <Link to={`/profile/${user?._id}`}>
           <div className="post-head-left">
-            {/* <Link to="/bookmarks"> */}
             <img src={userImg} alt="user" className="user-img" />
-            {/* </Link> */}
+
             <div className="post-user-info">
               <div>
                 <span>{name}</span>

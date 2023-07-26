@@ -6,9 +6,11 @@
   gap: 1.5rem;
 }
 .home > h2 {
-  width: calc(500px + 4rem);
   padding-top: 1rem;
   align-self: center;
+}
+.home > .logo {
+  display: none;
 }
 
 .filter {
@@ -32,17 +34,9 @@
 
 .filter > .active-filter {
   background-color: rgb(191 219 255);
-  /* color:white; */
-}
-.filter-icon {
 }
 
 .home > .empty-posts-container {
   text-align: center;
   padding-top: 2rem;
-}
-@media screen and (max-width: 768px) {
-  .home > h2 {
-    width: calc(400px + 4rem);
-  }
 }

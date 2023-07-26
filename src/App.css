@@ -30,7 +30,6 @@ input:focus {
 .App {
   display: grid;
   grid-template-columns: 2fr 5.75fr 2.25fr;
-
   justify-content: center;
 }
 
@@ -54,11 +53,31 @@ input:focus {
   align-items: center;
 }
 
-.head {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 0 0 2rem;
-  align-items: center;
+.logo {
+  background: -webkit-linear-gradient(bottom, rgb(54, 89, 154), cornflowerblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (min-width: 1201px) {
+  .App {
+    grid-template-columns: 20% 50% 30%;
+  }
+  .logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .App {
+    grid-template-columns: 20% 50% 30%;
+  }
+  .logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .App {
+    grid-template-columns: 8% 62% 30%;
+  }
 }
 @media screen and (max-width: 768px) {
   .App {
@@ -68,5 +87,13 @@ input:focus {
 @media screen and (max-width: 650px) {
   .App {
     grid-template-columns: 100%;
+  }
+  .logo {
+    display: block;
+    text-align: center;
+  }
+  p,
+  span {
+    font-size: 0.9rem;
   }
 }
