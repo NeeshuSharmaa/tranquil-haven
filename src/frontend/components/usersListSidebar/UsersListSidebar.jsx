@@ -35,7 +35,7 @@ export default function UsersListSidebar() {
               className="follow-btn"
               onClick={() => followUser(user._id, encodedToken)}
             >
-              Follow +
+              Follow
             </button>
           </div>
         ))}

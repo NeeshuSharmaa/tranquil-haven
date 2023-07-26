@@ -1,46 +1,48 @@
 .home {
   background-color: var(--gray-bg-color);
-  padding:2rem;
-  display:flex;
+  padding: 2rem;
+  display: flex;
   flex-direction: column;
-  gap:1.5rem;
+  gap: 1.5rem;
 }
-.home>h2{
-  padding-top:1rem;
+.home > h2 {
+  width: calc(500px + 4rem);
+  padding-top: 1rem;
+  align-self: center;
 }
-
 
 .filter {
   display: flex;
-  gap:0.5rem;
- background-color: white;
- padding:0.5rem;
-  border-radius:0.5rem;
-  width:max-content;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: max-content;
   align-self: center;
 }
-.filter>div{
-  display:flex;
-  gap:0.2rem;
+.filter > div {
+  display: flex;
+  gap: 0.2rem;
   align-items: center;
-  padding:0.2rem 0.6rem;
-  border-radius:0.4rem;
- color:var(--dark-primary) ;
- cursor:pointer;
-  
-
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  color: var(--dark-primary);
+  cursor: pointer;
 }
 
-.filter>.active-filter{
-  background-color:rgb(191 219 255);
+.filter > .active-filter {
+  background-color: rgb(191 219 255);
   /* color:white; */
 }
-.filter-icon{
-  
+.filter-icon {
 }
 
-.home>.empty-posts-container{
-  text-align:center;
-  padding-top:2rem;
-
+.home > .empty-posts-container {
+  text-align: center;
+  padding-top: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .home > h2 {
+    width: calc(400px + 4rem);
+  }
 }

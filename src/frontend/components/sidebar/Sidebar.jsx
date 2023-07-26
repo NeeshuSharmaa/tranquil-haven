@@ -5,12 +5,14 @@ import {
   faBookmark,
   faCompass,
   faHouse,
+  faPlus,
   faRightFromBracket,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
 import { usePostsContext } from "../../contexts/PostsContextProvider";
 
-export default function Sidebar() {
+export function Sidebar() {
   const activeStyle = ({ isActive }) =>
     isActive ? "active sidebar-link-child" : "sidebar-link-child";
 
@@ -19,8 +21,8 @@ export default function Sidebar() {
 
   return (
     <aside className="nav-sidebar">
-      <h2>tranquilHaven</h2>
       <div className="sidebar-links">
+        <h2>tranquilHaven</h2>
         <NavLink className={activeStyle} to="/">
           <FontAwesomeIcon className="fa-icons" icon={faHouse} />
           <span>Home</span>
@@ -33,10 +35,11 @@ export default function Sidebar() {
           <FontAwesomeIcon className="fa-icons" icon={faBookmark} />
           <span>Bookmarks</span>
         </NavLink>
-        {/* <NavLink className={activeStyle} to="/likedPosts">
-          <FontAwesomeIcon className="fa-icons" icon={faHeart} />
-          <span>Liked Posts</span>
+        {/* <NavLink className={activeStyle} to={`/profile/${currentUser?._id}`}>
+          <FontAwesomeIcon className="fa-icons" icon={faUser} />
+          <span>Profile</span>
         </NavLink> */}
+
         <button
           className="create-post"
           onClick={() => setShowCreatePostModal(true)}
@@ -53,7 +56,7 @@ export default function Sidebar() {
             <p className="name">{`${currentUser?.firstName} ${" "} ${
               currentUser?.lastName
             }`}</p>
-            <p>{currentUser?.email}</p>
+            <p>@{currentUser?.username}</p>
           </div>
         </Link>
         <FontAwesomeIcon
@@ -64,5 +67,29 @@ export default function Sidebar() {
         />
       </div>
     </aside>
+  );
+}
+
+export function BottomNavbar() {
+  const { currentUser } = useAuthContext();
+  return (
+    <div className="bottom-navbar">
+      <Link to="/">
+        <FontAwesomeIcon icon={faHouse} className="fa-icons" />
+      </Link>
+      <Link to="/explore">
+        <FontAwesomeIcon icon={faCompass} className="fa-icons" />
+      </Link>
+      <div className="plus-outer">
+        <FontAwesomeIcon icon={faPlus} className="fa-icons" />
+      </div>
+
+      <Link to="/bookmarks">
+        <FontAwesomeIcon icon={faBookmark} className="fa-icons" />
+      </Link>
+      <Link to={`/profile/${currentUser?._id}`}>
+        <FontAwesomeIcon icon={faUser} className="fa-icons" />
+      </Link>
+    </div>
   );
 }

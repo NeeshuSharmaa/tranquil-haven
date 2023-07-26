@@ -11,7 +11,7 @@ import Home from "./frontend/pages/home/Home";
 import PrivateRoute from "./frontend/components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Sidebar from "./frontend/components/sidebar/Sidebar";
+import { BottomNavbar, Sidebar } from "./frontend/components/sidebar/Sidebar";
 import PostModal from "./frontend/components/postModal/PostModal";
 
 import UsersListSidebar from "./frontend/components/usersListSidebar/UsersListSidebar";
@@ -76,6 +76,7 @@ function App() {
         <Route path="/notfound" element={<NotFound />} />
         <Route path="*" element={<Navigate replace to="/notfound" />} />
       </Routes>
+      {showSidebars && <BottomNavbar />}
       {showSidebars && <UsersListSidebar />}
       <ToastContainer
         position="top-right"

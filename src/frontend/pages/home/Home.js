@@ -14,9 +14,10 @@ import { useEffect } from "react";
 
 import { fetchPosts } from "../../services/PostServices";
 import TweetModal from "../../components/tweetModal/TweetModal";
+import Loader from "../../components/loader/Loader";
 
 export default function Home() {
-  const { currentUser } = useAuthContext();
+  const { currentUser, loading, setLoading } = useAuthContext();
   const {
     postsState: {
       posts,
@@ -62,7 +63,7 @@ export default function Home() {
 
   useEffect(() => {
     if (currentUser) {
-      fetchPosts(dispatch, currentUser);
+      fetchPosts(dispatch, currentUser, setLoading);
       localStorage.setItem("posts", JSON.stringify(posts));
     }
   }, []);

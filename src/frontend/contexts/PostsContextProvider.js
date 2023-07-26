@@ -18,8 +18,6 @@ export default function PostsContextProvider({ children }) {
   const [editPost, setEditPost] = useState(null);
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
 
-  const { currentUser } = useAuthContext();
-
   const postsData = JSON.parse(localStorage.getItem("posts"));
 
   const initialState = {

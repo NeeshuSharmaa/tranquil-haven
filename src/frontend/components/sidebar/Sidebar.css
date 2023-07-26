@@ -1,7 +1,7 @@
 .nav-sidebar {
-  position:sticky;
-  top:0;
-  left:0;
+  position: sticky;
+  top: 0;
+  left: 0;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -12,16 +12,17 @@
   height: 100vh;
   /* z-index:5; */
 }
-.nav-sidebar>h2{
+.sidebar-links > h2 {
   background: -webkit-linear-gradient(bottom, rgb(54, 89, 154), cornflowerblue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .sidebar-links {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .sidebar-link-child {
   display: flex;
   align-items: center;
@@ -33,13 +34,12 @@
   background-color: white;
   border-radius: 0.5rem;
 }
-.sidebar-links>button{
-  border-radius:0.4rem;
-  padding:0.8rem 1rem;
-  border:0;
-  background-color:cornflowerblue;
-  color:white;
-
+.sidebar-links > button {
+  border-radius: 0.4rem;
+  padding: 0.8rem 1rem;
+  border: 0;
+  background-color: cornflowerblue;
+  color: white;
 }
 .active {
   color: cornflowerblue;
@@ -55,20 +55,86 @@
   background-color: white;
   border-radius: 0.5rem;
 }
-.sidebar-profile >a> .profile-main {
+.sidebar-profile > a > .profile-main {
   font-size: 0.8rem;
   display: flex;
-  gap:0.5rem;
+  gap: 0.5rem;
   flex-direction: column;
   align-items: center;
-  cursor:pointer
+  cursor: pointer;
 }
-.sidebar-profile >a> .user-img {
+.sidebar-profile > a > .user-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  cursor:pointer;
+  cursor: pointer;
 }
-.sidebar-profile>.fa-icons{
-  color:var(--dark-primary);
+.sidebar-profile > .fa-icons {
+  color: var(--dark-primary);
+}
+@media screen and (max-width: 768px) {
+  .nav-sidebar {
+    justify-content: space-between;
+  }
+  .sidebar-profile {
+    flex-direction: row;
+    gap: 0.5rem;
+    background-color: transparent;
+  }
+  .sidebar-profile > a > .user-img {
+    width: 60px;
+    height: 60px;
+  }
+  .sidebar-profile > a > .profile-main {
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .sidebar-profile > .fa-icons {
+    display: none;
+  }
+  .sidebar-links > .profile {
+    display: flex;
+  }
+  .sidebar-links > h2 {
+    padding-top: 1rem;
+  }
+}
+.bottom-navbar {
+  display: none;
+}
+.plus-outer {
+  width: 25px;
+  height: 25px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plus-outer > .fa-icons {
+  width: 15px;
+  height: 15px;
+  color: white;
+}
+.bottom-navbar > a > .fa-icons {
+  width: 25px;
+  height: 25px;
+  color: cornflowerblue;
+}
+@media screen and (max-width: 650px) {
+  .nav-sidebar {
+    display: none;
+  }
+  .bottom-navbar {
+    padding: 1rem 0;
+    border-top: 1px solid rgb(236, 236, 236);
+    position: sticky;
+
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+  }
 }

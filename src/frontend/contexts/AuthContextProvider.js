@@ -18,6 +18,7 @@ export default function AuthContextProvider({ children }) {
   const [users, setUsers] = useState(usersData);
   const [currentUser, setCurrentUser] = useState(JSON.parse(user));
   const [encodedToken, setEncodedToken] = useState(token);
+  const [loading, setLoading] = useState(false);
 
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
 
@@ -177,6 +178,8 @@ export default function AuthContextProvider({ children }) {
   const values = {
     users,
     setUsers,
+    loading,
+    setLoading,
     showUnfollowBtn,
     setShowUnfollowBtn,
     currentUser,
