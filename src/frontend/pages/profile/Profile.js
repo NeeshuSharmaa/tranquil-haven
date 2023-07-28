@@ -73,10 +73,13 @@ export default function Profile() {
               <button className="logout" onClick={logoutHandler}>
                 Logout
               </button>
-              <div className="action-icons">
+              <div
+                className="action-icons"
+                onClick={() => setShowEditProfileModal(true)}
+              >
                 <FontAwesomeIcon icon={faUserPen} className="fa-icons" />
               </div>
-              <div className="action-icons">
+              <div className="action-icons" onClick={logoutHandler}>
                 <FontAwesomeIcon
                   icon={faRightFromBracket}
                   className="fa-icons"

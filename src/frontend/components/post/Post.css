@@ -34,6 +34,9 @@
   border-bottom: 1px solid lightgray;
   padding-bottom: 1rem;
 }
+.post-content > p {
+  word-wrap: break-word;
+}
 .post-content > img {
   width: 100%;
   max-height: 600px;

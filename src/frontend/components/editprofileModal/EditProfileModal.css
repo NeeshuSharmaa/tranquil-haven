@@ -1,158 +1,149 @@
-.edit-profile-modal{
-    position:fixed;
-    display:flex;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color:var(--modal-bg) ;
-    align-items: center;
-    justify-content: center;
-    z-index:5;
-
+.edit-profile-modal {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-bg);
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
 }
-.modal-main>.modal-body>.profile-image-outer{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    position:relative;
+.modal-main > .modal-body > .profile-image-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
 }
-.modal-main>.modal-body>.profile-image-outer>.profile-image-inner{
-    width:max-content;
-    height:max-content;
-    position:relative;
-
+.modal-main > .modal-body > .profile-image-outer > .profile-image-inner {
+  width: max-content;
+  height: max-content;
+  position: relative;
 }
-.change-img{
-    cursor:pointer;
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:90%;
-    background-color:var(--modal-bg);
-    border-radius:50%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    border:1px solid white;
+.change-img {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background-color: var(--modal-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
 }
-.change-img>.change-img-icon{
-    width:25px;
-    height:25px;
-    color: white;
-
+.change-img > .change-img-icon {
+  width: 25px;
+  height: 25px;
+  color: white;
 }
-.change-img-option{
-    display:flex;
-    flex-direction:column;
-    position:absolute;
-    top:0;
-    left:-15%;
-    background-color:var(--bluish-white);
-    border-radius:0.5rem;
-    padding:1rem 0;
-    width:max-content;
+.change-img-option {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: -15%;
+  background-color: var(--bluish-white);
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  width: max-content;
 }
-.change-img-option>.xMark{
-    position:absolute;
-    width:10px;
-    height:10px;
-    top:-5%;
-    right:-5%;
-    padding:0.5rem;
-    color:white;
-    background-color: rgb(60, 90, 145);
-    border-radius:50%;
-    cursor:pointer;
+.change-img-option > .xMark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -5%;
+  right: -5%;
+  padding: 0.5rem;
+  color: white;
+  background-color: rgb(60, 90, 145);
+  border-radius: 50%;
+  cursor: pointer;
 }
-.change-img-option>span{
-    padding:0.5rem 1.25rem;
-    cursor:pointer;
-    
-    
+.change-img-option > span {
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
 }
-.change-img-option>span>.icon{
-
-    width: 20px;
-        height: 15px;
-        margin-right: 0.2rem;
-
+.change-img-option > span > .icon {
+  width: 20px;
+  height: 15px;
+  margin-right: 0.2rem;
 }
 
-.change-img-option>span:hover{
-    background-color:rgb(178, 204, 252);
+.change-img-option > span:hover {
+  background-color: rgb(178, 204, 252);
 }
-.modal-main{
-    
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-    border-radius:0.5rem;
-    background-color: white;
-    box-shadow: 3px 3px 7px rgb(100, 99, 99);
+.modal-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 3px 3px 7px rgb(100, 99, 99);
+}
+.modal-main > h3 {
+  padding: 2rem;
+  color: white;
+  background-color: cornflowerblue;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.modal-main > .modal-body {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  gap: 0.6rem;
+}
+.profile-image-outer > .profile-image-inner > .profile-image {
+  align-self: center;
 
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 0.5rem;
 }
-.modal-main>h3{
-    padding:2rem;
-    color:white;
-    background-color: cornflowerblue;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    
-    
+.modal-main > .modal-body > .name {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-direction: row;
 }
-.modal-main>.modal-body{
-    
-    font-size:0.8rem;
-    display:flex;
-    flex-direction: column;
-    padding: 0 2rem;
-    gap:0.6rem;
-
-
+.modal-main > .modal-body > div,
+.modal-main > .modal-body > .name > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
-.profile-image-outer>.profile-image-inner>.profile-image{
-    align-self:center;
-  
-    border-radius:50%;
-    height:100px;
-    width:100px;
-    margin-bottom:0.5rem;
+.modal-main > .modal-body > div > input,
+.modal-main > .modal-body > .name > div > input {
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  border: 1px solid lightgray;
 }
-.modal-main>.modal-body>.name{
-    display:flex;
-    gap:0.6rem;
-    align-items: center;
-    flex-direction:row;
+.modal-main > .modal-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1rem 2rem 1rem;
+  color: grey;
 }
-.modal-main>.modal-body>div,.modal-main>.modal-body>.name>div {
-    display:flex;
-    flex-direction:column;
-    gap:0.2rem;
-
+.modal-main > .modal-footer > .save {
+  color: cornflowerblue;
+  cursor: pointer;
 }
-.modal-main>.modal-body>div>input,.modal-main>.modal-body>.name>div>input {
-    padding:0.2rem;
-    border-radius:0.2rem;
-    border:1px solid lightgray;
+.modal-main > .modal-footer > span:nth-child(3) {
+  cursor: pointer;
 }
-.modal-main>.modal-footer{
-    display:flex;
-    justify-content: space-around;
-    padding:1rem 1rem 2rem 1rem;
-    color:grey;
-   
-
+@media screen and (max-width: 452px) {
+  .modal-main > .modal-body > div > input,
+  .modal-main > .modal-body > .name > div > input {
+    width: 100%;
+  }
+  .modal-main {
+    width: 80%;
+  }
 }
-.modal-main>.modal-footer>.save{
-    color:cornflowerblue;
-    cursor:pointer;
-   
-
-}
-.modal-main>.modal-footer>span:nth-child(3){
-    cursor:pointer
-}
-

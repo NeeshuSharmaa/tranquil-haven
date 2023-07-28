@@ -22,7 +22,7 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-hero-container">
-        <h1 className="logo">Welcome to Tranquil Haven</h1>
+        <h1 className="logo-head">Welcome to Tranquil Haven</h1>
 
         <h1>Discover peace in the digital realm</h1>
         <img src="/assets/images/hero-img.png" alt="tranquil-haven" />

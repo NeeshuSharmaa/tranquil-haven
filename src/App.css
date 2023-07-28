@@ -97,3 +97,9 @@ input:focus {
     font-size: 0.9rem;
   }
 }
+@media screen and (max-width: 380px) {
+  p,
+  span {
+    font-size: 0.8rem;
+  }
+}
